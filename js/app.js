@@ -289,17 +289,32 @@
       drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleDrawer(false)));
     }
 
-    const sectionIds = ['hero', 'program', 'directions', 'skills', 'study-plan', 'admissions', 'campus', 'stickers', 'contacts'];
+    const sectionIds = ['hero', 'program', 'directions', 'skills', 'study-plan', 'admissions', 'campus', 'stickers', 'mirror', 'contacts'];
+    const navParentMap = {
+      hero: '#hero',
+      program: '#program',
+      directions: '#directions',
+      skills: '#directions',
+      'study-plan': '#study-plan',
+      admissions: '#admissions',
+      campus: '#campus',
+      stickers: '#campus',
+      mirror: '#contacts',
+      contacts: '#contacts'
+    };
     const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean);
-    const spyLinks = document.querySelectorAll('.nav-links a, .bookmark-toc a');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    const bmLinks = document.querySelectorAll('.bookmark-toc a');
 
     if ('IntersectionObserver' in window) {
       const io = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (!entry.isIntersecting) return;
           const sid = entry.target.id;
-          const activeHash = '#' + sid;
-          spyLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === activeHash));
+          const exactHash = '#' + sid;
+          const navHash = navParentMap[sid] || exactHash;
+          navLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === navHash));
+          bmLinks.forEach(a => a.classList.toggle('is-active', a.getAttribute('href') === exactHash));
           if (typeof window.__onSectionEntered === 'function') {
             window.__onSectionEntered(sid);
           }
@@ -309,11 +324,11 @@
     }
   }
 
-  /* ---------- 4. BRUNO MUNARI TALKING FORKS (NO HEIGHT JUMP!) ---------- */
+  /* ---------- 4. INTERACTIVE TALKING FORKS (NO HEIGHT JUMP!) ---------- */
   function initMunariForks() {
     const forkBtn = document.getElementById('munari-fork-btn');
     const forkCap = document.getElementById('fork-caption');
-    const captions = ['che vvuò?', 'how does it work?', 'bend the rules!', 'Munari, Speaking Forks (1958)', 'design is a gesture.'];
+    const captions = ['che vvuò?', 'how does it work?', 'bend the rules!', 'less talk. more making.', 'design is a gesture.'];
     let idx = 0;
     if (forkBtn && forkCap) {
       const trigger = () => {
@@ -948,13 +963,10 @@
       stage.appendChild(el);
     }
 
-    function seedDefaultPostcard() {
+    function clearPostcardStage() {
       stage.querySelectorAll('.placed-sticker').forEach(n => n.remove());
-      addStickerToStage(stickers[0], 78, 34, -8);
-      addStickerToStage(stickers[11], 62, 68, 7);
-      addStickerToStage(stickers[12], 84, 72, -5);
     }
-    seedDefaultPostcard();
+    clearPostcardStage();
 
     stage.addEventListener('click', e => {
       if (e.target.closest('.placed-sticker')) return;
@@ -1445,14 +1457,15 @@
     // Section-aware live reactions as user scrolls!
     const sectionReactions = {
       hero: { mood: 'classic', fill: '#000000', en: 'Ciao! Ask me anything about DBE', it: 'Ciao! Chiedimi tutto su DBE' },
-      program: { mood: 'eyebrow', fill: '#000000', en: 'che vvuò? Try tapping the fork!', it: 'che vvuò? Tocca la forchetta!' },
+      program: { mood: 'eyebrow', fill: '#000000', en: 'che vvuò? Ask me who I am!', it: 'che vvuò? Chiedimi chi sono!' },
       directions: { mood: 'joy', fill: '#ED1C24', en: 'Exhibit or Digital? Ask me to compare!', it: 'Exhibit o Digital? Chiedimi le differenze!' },
       skills: { mood: 'wide', fill: '#2E3192', en: '6 core studio skills inside!', it: '6 competenze chiave nei laboratori!' },
       'study-plan': { mood: 'classic', fill: '#000000', en: '120 ECTS! Looking for a course?', it: '120 CFU! Cerchi un esame preciso?' },
       admissions: { mood: 'shy', fill: '#000000', en: 'Open access! Need help applying?', it: 'Accesso libero! Ti aiuto a iscriverti?' },
       campus: { mood: 'peek', fill: '#000000', en: 'Palazzo Gravina, heart of Naples', it: 'Palazzo Gravina, centro di Napoli' },
       stickers: { mood: 'shy', fill: '#000000', en: 'Hey, those are my stickers!', it: 'Ehi, quelli sono i miei sticker!' },
-      contacts: { mood: 'wide', fill: '#000000', en: 'Try the Mirror Camera above!', it: 'Prova lo Specchio fotografico!' }
+      mirror: { mood: 'wide', fill: '#000000', en: 'Look in the Mirror Camera!', it: 'Prova lo Specchio fotografico!' },
+      contacts: { mood: 'classic', fill: '#000000', en: 'Contacts, offices & FAQ here!', it: 'Contatti, segreteria e FAQ qui!' }
     };
 
     window.__onSectionEntered = sid => {
@@ -1498,15 +1511,27 @@
       const q = rawQ.toLowerCase();
       const isIt = STATE.lang === 'it' || /\b(come|quanto|dove|quando|cosa|quali|chi|serve|tasse|iscrizione|esami|laurea|ciao|inglese|tirocinio|sede|orari)\b/.test(q);
 
-      // 1. Easter eggs: Munari / che vvuò / mascot
-      if (/munari|forchett|fork|che vvu|napoli|naples|chi sei|who are you/.test(q)) {
+      // 1. "che vvuò?" / Who is the Mascotte & what can it do
+      if (/che vvu|chi sei|who are you|mascott|what do you do|cosa fai|cosa puoi fare|nome|name/.test(q)) {
         updateGuideAppearance('eyebrow', '#ED1C24');
         hopMascot();
         return {
           text: isIt
-            ? '<strong>Che vvuò?</strong> Sono la Mascotte di DBE! Nasco dall’editoriale del corso (tra gestualità napoletana e le Forchette Parlanti di Bruno Munari). Chiedimi esami, tasse, B2, portfolio o ti porto direttamente nella sezione giusta!'
-            : '<strong>Che vvuò?</strong> I’m the DBE Mascotte! Born from the editorial booklet (inspired by Neapolitan hand gestures and Bruno Munari’s Speaking Forks). Ask me about courses, tuition, B2, portfolio, or let me guide you through the page!',
-          action: { label: isIt ? 'Portami alle Forchette →' : 'Walk me to the Forks →', targetId: 'program' }
+            ? '<strong>Che vvuò?</strong> (ovvero <em>"che vuoi?"</em> in napoletano!) Sono la <strong>Mascotte ufficiale di DBE</strong>, nata direttamente dalle pagine del nostro progetto editoriale.<br><br><strong>Cosa posso fare per te?</strong> Ti faccio da guida interattiva sul sito: chiedimi qualsiasi cosa su <strong>piano di studi (120 CFU)</strong>, differenze <strong>Exhibit vs Digital</strong>, <strong>ammissione 2026/27</strong>, <strong>inglese B2</strong>, <strong>tasse ISEE</strong>, <strong>Palazzo Gravina</strong> o <strong>contatti</strong>, e ti porto subito nella sezione giusta!'
+            : '<strong>Che vvuò?</strong> (that’s <em>"what do you want?"</em> in Neapolitan!) I’m the official <strong>DBE Mascotte</strong>, born straight from the pages of our editorial project.<br><br><strong>What can I do?</strong> I’m your interactive guide across the website: ask me about the <strong>120 ECTS study plan</strong>, <strong>Exhibit vs Digital</strong>, <strong>2026/27 admissions</strong>, <strong>B2 English</strong>, <strong>ISEE tuition</strong>, <strong>Palazzo Gravina</strong>, or <strong>contacts</strong>, and I’ll walk you right to the section you need!',
+          action: { label: isIt ? 'Esplora i 120 CFU →' : 'Explore 120 ECTS Plan →', targetId: 'study-plan' }
+        };
+      }
+
+      // 1b. Talking Forks on the Manifesto page
+      if (/forchett|fork/.test(q)) {
+        updateGuideAppearance('eyebrow', '#ED1C24');
+        hopMascot();
+        return {
+          text: isIt
+            ? 'Nella sezione <strong>01 · Il Corso</strong> trovi le forchette interattive dell’editoriale: cliccale per animarle!'
+            : 'In section <strong>01 · Program</strong> you can tap the interactive editorial forks to see them gesture!',
+          action: { label: isIt ? 'Vai alla Sezione 01 →' : 'Walk me to Section 01 →', targetId: 'program' }
         };
       }
 
@@ -1518,7 +1543,7 @@
           text: isIt
             ? 'Alla <strong>Federico II</strong> le tasse sono pubbliche e calcolate sull’<strong>ISEE</strong>. In No-Tax Area paghi solo ~156€/anno (tassa regionale e bollo), e puoi richiedere le borse <strong>ADISURC Campania</strong> (alloggio, mensa e contributo).'
             : 'At <strong>Federico II</strong>, tuition is public and strictly income based via <strong>ISEE</strong>. Students in the No-Tax Area pay only ~€156/year, and both Italian and international students can apply for <strong>ADISURC Campania</strong> scholarships.',
-          action: { label: isIt ? 'Vai alle FAQ Tasse →' : 'Walk me to Tuition FAQ →', targetId: 'campus' }
+          action: { label: isIt ? 'Vai alle FAQ in fondo →' : 'Walk me to Tuition FAQ →', targetId: 'faq' }
         };
       }
 
@@ -1587,15 +1612,27 @@
         };
       }
 
-      // 7. Palazzo Gravina / Location / Hours / Contacts / Coordinator / Professors
-      if (/dove|where|palazzo|gravina|sed|indirizz|address|metro|orar|hour|contatt|email|morone|prof|docent|coordinat|forno vecchio/.test(q)) {
+      // 7. Contacts / Secretariat / Offices
+      if (/contatt|contact|email|segreteri|secretariat|forno vecchio|toledo|uffic|office|portal/.test(q)) {
+        updateGuideAppearance('classic', '#2E3192');
+        hopMascot();
+        return {
+          text: isIt
+            ? 'Puoi scrivere alla <strong>Segreteria Didattica DBE</strong> (Amelia Corbisiero e Patrizia Masucci) a <code>infodiarcdbe@unina.it</code> o al Coordinatore <strong>Prof. Alfonso Morone</strong> (<code>alfonso.morone@unina.it</code>). La Segreteria Studenti è in <strong>Via Forno Vecchio 36</strong>.'
+            : 'You can reach the <strong>DBE Academic Secretariat</strong> (Amelia Corbisiero & Patrizia Masucci) at <code>infodiarcdbe@unina.it</code> or Program Coordinator <strong>Prof. Alfonso Morone</strong> (<code>alfonso.morone@unina.it</code>). The Student Affairs Office is at <strong>Via Forno Vecchio 36</strong>.',
+          action: { label: isIt ? 'Vai a 06 · Contatti →' : 'Walk me to 06 · Contacts →', targetId: 'contacts' }
+        };
+      }
+
+      // 7b. Palazzo Gravina / Campus / Location / Hours / Coordinator / Professors
+      if (/dove|where|palazzo|gravina|sed|indirizz|address|metro|orar|hour|morone|prof|docent|coordinat|napoli|naples/.test(q)) {
         updateGuideAppearance('peek', '#2E3192');
         hopMascot();
         return {
           text: isIt
-            ? 'Le lezioni si tengono a <strong>Palazzo Gravina</strong> (Via Monteoliveto 3, 2° piano, Aule 18, 19, 21, vicino Metro Toledo/Dante/Università). Coordinatore: <strong>Prof. Alfonso Morone</strong>. Email ufficiale: <code>infodiarcdbe@unina.it</code>. Segreteria: Via Forno Vecchio 36.'
+            ? 'Le lezioni si tengono a <strong>Palazzo Gravina</strong> (Via Monteoliveto 3, 2° piano, Aule 18, 19, 21, vicino Metro Toledo/Dante/Università). Coordinatore: <strong>Prof. Alfonso Morone</strong>. Email ufficiale: <code>infodiarcdbe@unina.it</code>.'
             : 'Classes take place at <strong>Palazzo Gravina</strong> (Via Monteoliveto 3, 2nd floor, Rooms 18, 19, 21, minutes from Toledo, Dante and Università Metro). Coordinator: <strong>Prof. Alfonso Morone</strong>. Official email: <code>infodiarcdbe@unina.it</code>.',
-          action: { label: isIt ? 'Vedi Sede e Docenti →' : 'Walk me to Campus & People →', targetId: 'campus' }
+          action: { label: isIt ? 'Vedi 05 · Sede e Docenti →' : 'Walk me to 05 · Campus →', targetId: 'campus' }
         };
       }
 
@@ -1618,11 +1655,11 @@
         hopMascot();
         return {
           text: isMirror
-            ? (isIt ? 'In fondo alla pagina trovi la <strong>Carta Specchiata</strong> interattiva di Pagina 12: attiva la fotocamera o carica una foto per scaricare il tuo ritratto DBE in PNG o PDF!' : 'At the bottom of the page you’ll find the interactive <strong>Page 12 Mirror Card</strong>: turn on your camera or upload a portrait and download it as PNG or PDF!')
+            ? (isIt ? 'Nella sezione <strong>Carta Specchiata</strong> di Pagina 12 puoi attivare la fotocamera o caricare una foto per scaricare il tuo ritratto DBE in PNG o PDF!' : 'In the interactive <strong>Page 12 Mirror Card</strong> section you can turn on your camera or upload a portrait and download it as PNG or PDF!')
             : (isIt ? 'Nell’Atelier <strong>TAKE ME WITH YOU!</strong> trovi tutti i miei 15 sticker originali per comporre una cartolina DBE Napoli o attaccarli ovunque sulla pagina!' : 'Inside <strong>TAKE ME WITH YOU!</strong> you have all 15 original stickers to build your DBE Naples postcard (PNG/PDF) or stamp them anywhere on the page!'),
           action: {
             label: isMirror ? (isIt ? 'Vai allo Specchio →' : 'Take me to the Mirror →') : (isIt ? 'Vai agli Sticker →' : 'Take me to Stickers →'),
-            targetId: isMirror ? 'contacts' : 'stickers'
+            targetId: isMirror ? 'mirror' : 'stickers'
           }
         };
       }
@@ -1744,6 +1781,72 @@
     applyLanguage('en');
   }
 
+  /* ---------- 15. FULL STATE RESET ON RELOAD & SAFARI BFCACHE ---------- */
+  function resetToFreshPageState() {
+    // 1. Clear all page stickers & postcard stickers
+    const pageLayer = document.getElementById('page-sticker-layer');
+    if (pageLayer) pageLayer.innerHTML = '';
+    const postcardStage = document.getElementById('postcard-stage');
+    if (postcardStage) {
+      postcardStage.querySelectorAll('.placed-sticker').forEach(n => n.remove());
+      STATE.postcardBg = 'red';
+      postcardStage.setAttribute('data-bg', 'red');
+      document.querySelectorAll('.bg-swatch-btn').forEach(b => {
+        b.classList.toggle('is-active', b.getAttribute('data-paper') === 'red');
+      });
+    }
+    STATE.selectedStickerIdx = 0;
+    STATE.pageStickMode = false;
+    document.body.classList.remove('is-stick-mode');
+    document.getElementById('sticker-mode-hud')?.classList.remove('is-visible');
+    document.getElementById('sticker-ghost-cursor')?.classList.remove('is-visible');
+    if (syncStickerLabelsGlobal) syncStickerLabelsGlobal();
+
+    // 2. Reset Acetate Lens position and mode
+    STATE.lensPos = { x: 210, y: 155, w: 330, h: 255 };
+    if (applyAcetateGlobal) applyAcetateGlobal('lens-red');
+
+    // 3. Reset Vellum Tracing Sheet slider
+    const vellumSlider = document.getElementById('vellum-slider');
+    if (vellumSlider) vellumSlider.value = '0';
+    if (setVellumGlobal) setVellumGlobal(0);
+
+    // 4. Reset Study Plan search & filters
+    STATE.planTrack = 'all';
+    STATE.planSem = 'all';
+    STATE.planQuery = '';
+    const planSearch = document.getElementById('plan-search');
+    if (planSearch) planSearch.value = '';
+    document.querySelectorAll('#plan-track-tabs .tab-btn').forEach(btn => {
+      const active = btn.getAttribute('data-track') === 'all';
+      btn.classList.toggle('is-active', active);
+      btn.setAttribute('aria-selected', String(active));
+    });
+    document.querySelectorAll('.plan-filters .filter-pill').forEach(pill => {
+      pill.classList.toggle('is-active', pill.getAttribute('data-sem') === 'all');
+    });
+    renderStudyPlan();
+
+    // 5. Reset Admissions Wizard controls
+    STATE.wizCitizenship = 'it';
+    STATE.wizDegree = 'direct';
+    STATE.wizEnglish = 'cert';
+    const wizDeg = document.getElementById('wiz-degree');
+    if (wizDeg) wizDeg.value = 'direct';
+    document.querySelectorAll('#wiz-citizenship button').forEach(b => {
+      b.classList.toggle('is-active', b.getAttribute('data-val') === 'it');
+    });
+    document.querySelectorAll('#wiz-english button').forEach(b => {
+      b.classList.toggle('is-active', b.getAttribute('data-val') === 'cert');
+    });
+    renderAdmissionsWizard();
+
+    // 6. Reset Mirror Photobooth input & frame
+    const mirrorUpload = document.getElementById('mirror-upload-input');
+    if (mirrorUpload) mirrorUpload.value = '';
+    document.getElementById('mirror-stop-btn')?.click();
+  }
+
   /* ---------- BOOTSTRAP ALL MODULES ---------- */
   document.addEventListener('DOMContentLoaded', () => {
     hydrateSVGs();
@@ -1759,5 +1862,10 @@
     initMirrorPhotobooth();
     initMascotteGuide();
     initLanguageSwitcher();
+    resetToFreshPageState();
+  });
+
+  window.addEventListener('pageshow', () => {
+    resetToFreshPageState();
   });
 })();

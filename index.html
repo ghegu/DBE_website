@@ -60,12 +60,10 @@
     <ul class="mobile-drawer-links">
       <li><a href="#program"><span>01</span> <em data-i18n="nav_program">Program</em></a></li>
       <li><a href="#directions"><span>02</span> <em data-i18n="nav_directions">Directions</em></a></li>
-      <li><a href="#skills"><span>03</span> Skills</a></li>
-      <li><a href="#study-plan"><span>04</span> <em data-i18n="nav_plan">Study Plan</em></a></li>
-      <li><a href="#admissions"><span>05</span> <em data-i18n="nav_admissions">Admissions</em></a></li>
-      <li><a href="#campus"><span>06</span> <em data-i18n="nav_campus">Campus</em></a></li>
-      <li><a href="#stickers"><span>07</span> Stickers</a></li>
-      <li><a href="#contacts"><span>08</span> <em data-i18n="nav_contacts">Contacts</em></a></li>
+      <li><a href="#study-plan"><span>03</span> <em data-i18n="nav_plan">Study Plan</em></a></li>
+      <li><a href="#admissions"><span>04</span> <em data-i18n="nav_admissions">Admissions</em></a></li>
+      <li><a href="#campus"><span>05</span> <em data-i18n="nav_campus">Campus</em></a></li>
+      <li><a href="#contacts"><span>06</span> <em data-i18n="nav_contacts">Contacts</em></a></li>
     </ul>
     <div style="font-family: var(--font-mono); font-size: 0.78rem; opacity: 0.8;">
       Palazzo Gravina · Via Monteoliveto 3, Naples<br>
@@ -73,22 +71,23 @@
     </div>
   </div>
 
-  <!-- On-Demand Editorial Bookmark Index Drawer (Only opens when user clicks Open Index in Section 03) -->
+  <!-- On-Demand Editorial Bookmark Index Drawer (Only opens when user clicks Open Index) -->
   <aside class="bookmark-drawer" id="bookmark-drawer" aria-label="Editorial Page Index" aria-hidden="true">
     <div class="bookmark-panel-head">
       <span>DBE EDITORIAL INDEX</span>
       <button type="button" id="bookmark-close-btn" aria-label="Close Index" style="background:var(--ink); color:#fff; border:0; width:24px; height:24px; cursor:pointer; font-weight:900;">×</button>
     </div>
     <ul class="bookmark-toc" id="bookmark-toc">
-      <li><a href="#hero"><span class="bm-dot"></span>01 · Cover</a></li>
-      <li><a href="#program"><span class="bm-dot"></span>02 · Manifesto</a></li>
-      <li><a href="#directions"><span class="bm-dot"></span>03 · Acetate Lens</a></li>
-      <li><a href="#skills"><span class="bm-dot"></span>04 · 6 Skills</a></li>
-      <li><a href="#study-plan"><span class="bm-dot"></span>05 · 120 ECTS Plan</a></li>
-      <li><a href="#admissions"><span class="bm-dot"></span>06 · Admissions 26/27</a></li>
-      <li><a href="#campus"><span class="bm-dot"></span>07 · Careers &amp; Campus</a></li>
-      <li><a href="#stickers"><span class="bm-dot"></span>08 · Sticker Sheet</a></li>
-      <li><a href="#contacts"><span class="bm-dot"></span>09 · Mirror &amp; Contacts</a></li>
+      <li><a href="#hero"><span class="bm-dot"></span>00 · Cover</a></li>
+      <li><a href="#program"><span class="bm-dot"></span>01 · Program &amp; Manifesto</a></li>
+      <li><a href="#directions"><span class="bm-dot"></span>02 · Directions (Acetate)</a></li>
+      <li><a href="#skills"><span class="bm-dot"></span>· 6 Studio Skills</a></li>
+      <li><a href="#study-plan"><span class="bm-dot"></span>03 · 120 ECTS Study Plan</a></li>
+      <li><a href="#admissions"><span class="bm-dot"></span>04 · Admissions 26/27</a></li>
+      <li><a href="#campus"><span class="bm-dot"></span>05 · Campus &amp; Careers</a></li>
+      <li><a href="#stickers"><span class="bm-dot"></span>· Sticker Atelier</a></li>
+      <li><a href="#mirror"><span class="bm-dot"></span>· Mirror Card</a></li>
+      <li><a href="#contacts"><span class="bm-dot"></span>06 · Contacts &amp; FAQ</a></li>
     </ul>
   </aside>
 
@@ -273,11 +272,11 @@
           Here, design is not just about how things look. It’s about understanding how they work, how people interact with them and how they can be transformed.
         </blockquote>
 
-        <div class="munari-fork-stage" id="munari-fork-btn" role="button" tabindex="0" aria-label="Interactive Bruno Munari talking fork">
+        <div class="munari-fork-stage" id="munari-fork-btn" role="button" tabindex="0" aria-label="Interactive talking fork">
           <div class="munari-fork-svg" data-svg="forkCheVvuo"></div>
           <div class="fork-caption-row">
             <span class="fork-che-vvuo" id="fork-caption">che vvuò?</span>
-            <span class="fork-hint">TAP FORK · MUNARI HOMAGE</span>
+            <span class="fork-hint">TAP FORK · INTERACTIVE</span>
           </div>
         </div>
       </div>
@@ -539,7 +538,7 @@
           <div class="diecut-frame-outer">
             <div class="diecut-top-label">
               <div>
-                <span class="swiss-kicker" data-i18n="skills_kicker">03 · DIE-CUT WINDOW &amp; EXPANDABLE FOLDOUT (PAGES 07 TO 09)</span>
+                <span class="swiss-kicker" data-i18n="skills_kicker">CORE COMPETENCIES · DIE-CUT WINDOW &amp; EXPANDABLE FOLDOUT (PAGES 07 TO 09)</span>
                 <h2 class="diecut-title-frame" data-i18n="skills_h2">KNOWLEDGE AND COMPETENCIES</h2>
               </div>
               <div style="display:flex; gap:0.65rem; flex-wrap:wrap;">
@@ -597,38 +596,35 @@
     </section>
 
     <!-- ===================================================================
-         SECTION 5: LESS TALK. MORE MAKING. + COMPLETE 120 ECTS STUDY PLAN (P.10)
+         SECTION 03: LESS TALK. MORE MAKING. + COMPLETE 120 ECTS STUDY PLAN (P.10)
          =================================================================== -->
     <section class="section-block" id="study-plan">
       <div class="container">
-        <div class="making-hero-band">
-          <h2 class="making-vertical-title" data-i18n="plan_h2">LESS TALK.<br>MORE MAKING.</h2>
+        <div class="section-header-row">
+          <div>
+            <span class="swiss-kicker" data-i18n="plan_kicker">03 · COMPLETE 2026/2027 STUDY PLAN (120 ECTS)</span>
+            <h2 class="section-heading" data-i18n="plan_h2">LESS TALK. MORE MAKING.</h2>
+          </div>
+          <p class="section-lead" data-i18n="plan_intro"></p>
+        </div>
 
-          <div style="display:flex; flex-direction:column; gap:1.45rem;">
-            <div>
-              <span class="swiss-kicker" data-i18n="plan_kicker">04 · COMPLETE 2026/2027 STUDY PLAN (120 ECTS)</span>
-              <p class="editorial-light" style="font-size:1.1rem; margin:0.9rem 0 0 0;" data-i18n="plan_intro"></p>
+        <div class="making-compact-band">
+          <div class="making-method-grid">
+            <div class="method-step">
+              <span class="method-step-num">01</span>
+              <strong data-i18n="method_1_t">Concept &amp; Research</strong>
+              <span data-i18n="method_1_d">Analyze spaces, materials, and human habits before designing.</span>
             </div>
-
-            <div class="making-method-grid">
-              <div class="method-step">
-                <span class="method-step-num">01</span>
-                <strong data-i18n="method_1_t">Concept &amp; Research</strong>
-                <span data-i18n="method_1_d">Analyze spaces, materials, and human habits before designing.</span>
-              </div>
-              <div class="method-step">
-                <span class="method-step-num">02</span>
-                <strong data-i18n="method_2_t">Hands-On Prototyping</strong>
-                <span data-i18n="method_2_d">Build physical scale models, CNC pieces, and interactive UI systems.</span>
-              </div>
-              <div class="method-step">
-                <span class="method-step-num">03</span>
-                <strong data-i18n="method_3_t">Critique &amp; Real Briefs</strong>
-                <span data-i18n="method_3_d">Weekly studio reviews, industry workshops, and a mandatory traineeship.</span>
-              </div>
+            <div class="method-step">
+              <span class="method-step-num">02</span>
+              <strong data-i18n="method_2_t">Hands-On Prototyping</strong>
+              <span data-i18n="method_2_d">Build physical scale models, CNC pieces, and interactive UI systems.</span>
             </div>
-
-            <p style="font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-muted); border-left:3px solid var(--cobalt); padding-left:0.9rem; margin:0;" data-i18n="plan_note"></p>
+            <div class="method-step">
+              <span class="method-step-num">03</span>
+              <strong data-i18n="method_3_t">Critique &amp; Real Briefs</strong>
+              <span data-i18n="method_3_d">Weekly studio reviews, industry workshops, and a mandatory traineeship.</span>
+            </div>
           </div>
 
           <div class="making-stats-grid">
@@ -661,6 +657,8 @@
               </div>
             </div>
           </div>
+
+          <p class="making-verified-note" data-i18n="plan_note"></p>
         </div>
 
         <!-- 120 ECTS Visual Composition Bar -->
@@ -700,7 +698,7 @@
             <button type="button" class="filter-pill is-active" data-sem="all">All Semesters</button>
             <button type="button" class="filter-pill" data-sem="1">Sem 1</button>
             <button type="button" class="filter-pill" data-sem="2">Sem 2</button>
-            <input type="search" class="plan-search" id="plan-search" placeholder="Search course, SSD, professor..." aria-label="Search study plan">
+            <input type="search" class="plan-search" id="plan-search" autocomplete="off" placeholder="Search course, SSD, professor..." aria-label="Search study plan">
           </div>
         </div>
 
@@ -732,13 +730,13 @@
     </section>
 
     <!-- ===================================================================
-         SECTION 6: ADMISSIONS + TRANSLUCENT TRACING SHEET OVERLAY (PAGE 11)
+         SECTION 04: ADMISSIONS + TRANSLUCENT TRACING SHEET OVERLAY (PAGE 11)
          =================================================================== -->
     <section class="section-block admissions-band" id="admissions">
       <div class="container">
         <div class="section-header-row">
           <div>
-            <span class="swiss-kicker" data-i18n="adm_kicker">05 · ADMISSIONS &amp; REQUIREMENTS 2026/2027 (PAGE 11 + TRACING SHEET)</span>
+            <span class="swiss-kicker" data-i18n="adm_kicker">04 · ADMISSIONS &amp; REQUIREMENTS 2026/2027 (PAGE 11 + TRACING SHEET)</span>
             <h2 class="section-heading" data-i18n="adm_h2">CLEAR PATH TO ENROLLMENT.</h2>
           </div>
           <p class="section-lead" data-i18n="adm_lead"></p>
@@ -816,9 +814,9 @@
           <div class="vellum-controls-bar">
             <div class="vellum-slider-wrap">
               <span data-i18n="vellum_slider_lbl">PEEL TRACING SHEET:</span>
-              <input type="range" id="vellum-slider" min="0" max="100" value="0" aria-label="Slide to peel back translucent tracing sheet">
+              <input type="range" id="vellum-slider" min="0" max="100" value="0" autocomplete="off" aria-label="Slide to peel back translucent tracing sheet">
             </div>
-            <button type="button" class="btn btn-red" id="vellum-toggle-btn" style="padding:0.55rem 1rem; font-size:0.74rem;">Lift Vellum Sheet →</button>
+            <button type="button" class="btn btn-red" id="vellum-toggle-btn" style="padding:0.55rem 1rem; font-size:0.74rem;">Lift Tracing Sheet →</button>
           </div>
           <p style="font-family:var(--font-mono); font-size:0.74rem; color:var(--ink-muted); margin:0.55rem 0 0 0;" data-i18n="vellum_hint"></p>
         </div>
@@ -840,7 +838,7 @@
 
             <div class="wizard-group">
               <label class="wizard-label" for="wiz-degree">2. Bachelor’s Degree Background</label>
-              <select id="wiz-degree" class="wizard-select">
+              <select id="wiz-degree" class="wizard-select" autocomplete="off">
                 <option value="direct">Design / Architecture / Urbanism (L-04, L-17, L-21, L-23)</option>
                 <option value="eng">Engineering / Computer Science (L-07, L-09, L-31)</option>
                 <option value="arts">Fine Arts / Visual Design (L-03 / AFAM / Foreign Equivalent)</option>
@@ -892,13 +890,13 @@
     </section>
 
     <!-- ===================================================================
-         SECTION 7: CAREERS, PALAZZO GRAVINA CAMPUS, FACULTY & FAQ
+         SECTION 05: CAREERS, PALAZZO GRAVINA CAMPUS & FACULTY
          =================================================================== -->
     <section class="section-block" id="campus">
       <div class="container">
         <div class="section-header-row">
           <div>
-            <span class="swiss-kicker" data-i18n="campus_kicker">06 · CAREERS, PALAZZO GRAVINA &amp; FAQ</span>
+            <span class="swiss-kicker" data-i18n="campus_kicker">05 · CAREERS &amp; PALAZZO GRAVINA CAMPUS</span>
             <h2 class="section-heading" data-i18n="campus_h2">FROM PALAZZO GRAVINA TO THE WORLD.</h2>
           </div>
           <p class="section-lead" data-i18n="campus_lead"></p>
@@ -906,7 +904,7 @@
 
         <div class="careers-grid" id="careers-grid"></div>
 
-        <div class="campus-split">
+        <div class="campus-split" style="margin-bottom:0;">
           <div class="campus-card">
             <div>
               <span class="swiss-kicker" style="color:var(--yellow);">STUDY IN HISTORIC NAPLES</span>
@@ -963,22 +961,17 @@
             </ul>
           </div>
         </div>
-
-        <div>
-          <h3 style="margin:0 0 1.25rem 0; font-size:1.5rem; font-weight:900; text-transform:uppercase;">Frequently Asked Questions</h3>
-          <div class="faq-list" id="faq-list"></div>
-        </div>
       </div>
     </section>
 
     <!-- ===================================================================
-         SECTION 8: "TAKE ME WITH YOU!" INTERACTIVE STICKER SHEET (PAGE 6)
+         INTERACTIVE STICKER ATELIER: "TAKE ME WITH YOU!" (PAGE 06)
          =================================================================== -->
     <section class="stickers-section" id="stickers">
       <div class="container">
         <div class="section-header-row" style="border-bottom-color:var(--red);">
           <div>
-            <span class="swiss-kicker" data-i18n="stickers_kicker">07 · INTERACTIVE STICKER SHEET (PAGE 06)</span>
+            <span class="swiss-kicker" data-i18n="stickers_kicker">INTERACTIVE STICKER SHEET · 15 ORIGINAL ASSETS (PAGE 06)</span>
             <h2 class="stickers-headline" data-i18n="stickers_h2">TAKE ME WITH YOU!</h2>
           </div>
           <p class="section-lead" data-i18n="stickers_lead"></p>
@@ -1029,9 +1022,9 @@
     </section>
 
     <!-- ===================================================================
-         SECTION 9: CLOSING RED SPREAD + INTERACTIVE MIRROR PHOTOBOOTH (PAGE 12)
+         INTERACTIVE MIRROR PHOTOBOOTH: PAGE 12 RED SPREAD
          =================================================================== -->
-    <section class="closing-red" id="contacts">
+    <section class="closing-red" id="mirror">
       <div class="container">
         <h2 class="closing-headline" data-i18n="closing_h2">THE FUTURE<br>NEEDS DESIGNERS.<br>ARE YOU IN?</h2>
 
@@ -1046,7 +1039,7 @@
                 <button type="button" class="btn btn-black" id="mirror-start-btn" data-i18n="mirror_cam_btn">Turn On Mirror Camera</button>
                 <label class="btn btn-white" style="border-color:var(--ink); color:var(--ink); cursor:pointer;">
                   <span data-i18n="mirror_upload_btn">Upload a Photo</span>
-                  <input type="file" id="mirror-upload-input" accept="image/*" style="display:none;">
+                  <input type="file" id="mirror-upload-input" accept="image/*" autocomplete="off" style="display:none;">
                 </label>
               </div>
             </div>
@@ -1078,44 +1071,83 @@
 
           <div class="mirror-error-msg" id="mirror-error-msg"></div>
         </div>
+      </div>
+    </section>
 
-        <!-- Page 12 Practical Footer Columns -->
-        <footer class="closing-footer-grid">
-          <div class="footer-col">
-            <h4 data-i18n="ft_office">Student Affairs Office</h4>
+    <!-- ===================================================================
+         SECTION 06: CONTACTS, OFFICES, OFFICIAL PORTALS & FAQ (AT THE BOTTOM)
+         =================================================================== -->
+    <section class="contacts-bottom-section" id="contacts">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="swiss-kicker" data-i18n="contacts_kicker">06 · CONTACTS, OFFICES &amp; OFFICIAL PORTALS</span>
+            <h2 class="section-heading" data-i18n="contacts_h2">GET IN TOUCH WITH DBE.</h2>
+          </div>
+          <p class="section-lead" data-i18n="contacts_lead">Direct contacts for the DBE Academic Secretariat, Student Affairs Office, Palazzo Gravina opening hours, official enrollment portals, and frequently asked questions.</p>
+        </div>
+
+        <!-- 3-Column Swiss Contacts & Offices Cards -->
+        <div class="contacts-cards-grid">
+          <div class="contact-card">
+            <span class="swiss-kicker" data-i18n="ft_contact">Contact &amp; Official Portals</span>
+            <h3>DBE Academic Secretariat</h3>
+            <p class="contact-main-mail">
+              <a href="mailto:infodiarcdbe@unina.it">infodiarcdbe@unina.it</a>
+            </p>
+            <p><strong>Secretariat:</strong> Amelia Corbisiero &amp; Patrizia Masucci</p>
+            <p><strong>Coordinator:</strong> Prof. Alfonso Morone (<a href="mailto:alfonso.morone@unina.it" style="text-decoration:underline;">alfonso.morone@unina.it</a>)</p>
+            <div class="contact-links-list">
+              <a href="https://www.corsi.unina.it/DB1/" target="_blank" rel="noopener">corsi.unina.it/DB1 ↗</a>
+              <a href="https://www.diarc.dbe.unina.it/images/DBE_application_smart_guide_26-27_color_web.pdf" target="_blank" rel="noopener">Smart Guide 26/27 (PDF) ↗</a>
+              <a href="https://www.segrepass.unina.it/" target="_blank" rel="noopener">Segrepass Portal (IT/EU) ↗</a>
+              <a href="https://www.universitaly.it/" target="_blank" rel="noopener">Universitaly Portal (Extra-EU) ↗</a>
+              <a href="https://www.instagram.com/dbe_federicosecondo/" target="_blank" rel="noopener">@dbe_federicosecondo on Instagram ↗</a>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <span class="swiss-kicker" data-i18n="ft_where">Where?</span>
+            <h3>Palazzo Gravina Campus</h3>
+            <p><strong>Address:</strong> Via Monteoliveto 3, 80134 Napoli (NA)</p>
+            <p><strong>DBE Studios:</strong> 2nd Floor, Rooms 18, 19, 21</p>
+            <div class="contact-hours-box">
+              <strong data-i18n="ft_hours_lbl">Open for students:</strong>
+              <span data-i18n="ft_hours_1">Mon, Wed, Fri · 09:00 to 12:00</span>
+              <span data-i18n="ft_hours_2">Tue and Thu · 09:00 to 12:00 and 14:30 to 16:30</span>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <span class="swiss-kicker" data-i18n="ft_office">Student Affairs Office</span>
+            <h3>Offices &amp; Department HQ</h3>
+            <p><strong data-i18n="ft_office">Student Affairs Office</strong></p>
             <p>Via Forno Vecchio 36, 80134 Napoli (NA)</p>
-            <p style="margin-top:0.65rem;"><strong data-i18n="ft_hq">DiARC Headquarters</strong></p>
+            <p style="font-size:0.84rem; color:var(--ink-muted);">Enrollment, Career Management, Tuition &amp; Certificates</p>
+            <hr style="border:0; border-top:1px solid var(--rule-light); margin:0.9rem 0;">
+            <p><strong data-i18n="ft_hq">DiARC Headquarters</strong></p>
             <p>Via Toledo 402, 80134 Napoli (NA)</p>
-            <a href="mailto:infodiarc@unina.it">infodiarc@unina.it</a>
+            <p><a href="mailto:infodiarc@unina.it" style="text-decoration:underline; font-weight:700;">infodiarc@unina.it</a> · <a href="https://www.diarc.unina.it/" target="_blank" rel="noopener" style="text-decoration:underline;">diarc.unina.it ↗</a></p>
           </div>
+        </div>
 
-          <div class="footer-col">
-            <h4 data-i18n="ft_contact">Contact &amp; Official Portals</h4>
-            <a href="mailto:infodiarcdbe@unina.it"><strong>infodiarcdbe@unina.it</strong></a>
-            <a href="https://www.diarc.unina.it/" target="_blank" rel="noopener">diarc.unina.it ↗</a>
-            <a href="https://www.corsi.unina.it/DB1/" target="_blank" rel="noopener">corsi.unina.it/DB1 ↗</a>
-            <a href="https://www.diarc.dbe.unina.it/images/DBE_application_smart_guide_26-27_color_web.pdf" target="_blank" rel="noopener">Smart Guide 26/27 (PDF) ↗</a>
-            <a href="https://www.instagram.com/dbe_federicosecondo/" target="_blank" rel="noopener">@dbe_federicosecondo on Instagram ↗</a>
+        <!-- Frequently Asked Questions moved to the very bottom of the page -->
+        <div class="faq-bottom-block" id="faq">
+          <div class="faq-bottom-head">
+            <span class="swiss-kicker" data-i18n="faq_kicker">FREQUENTLY ASKED QUESTIONS · QUICK ANSWERS</span>
+            <h3 data-i18n="faq_h3">Frequently Asked Questions</h3>
           </div>
+          <div class="faq-list" id="faq-list"></div>
+        </div>
 
-          <div class="footer-col">
-            <h4 data-i18n="ft_where">Where?</h4>
-            <p><strong>Palazzo Gravina</strong></p>
-            <p>Via Monteoliveto 3, 80134 Napoli (NA)</p>
-            <p style="margin-top:0.5rem;" data-i18n="ft_hours_lbl">Open for students:</p>
-            <p data-i18n="ft_hours_1">Mon, Wed, Fri · 09:00 to 12:00</p>
-            <p data-i18n="ft_hours_2">Tue and Thu · 09:00 to 12:00 and 14:30 to 16:30</p>
-          </div>
-        </footer>
-
-        <div class="footer-bottom-bar">
+        <footer class="footer-bottom-bar footer-bottom-ink">
           <div class="inst-logos" style="gap:1.5rem;">
-            <span class="inst-logo-fed"><img src="assets/svg/federico-ii-logo.svg" alt="Università degli Studi di Napoli Federico II" class="fed-logo-img"></span>
+            <span class="inst-logo-fed"><img src="assets/svg/federico-ii-logo.svg" alt="Università degli Studi di Napoli Federico II"></span>
             <span class="inst-logo-dbe" data-svg="dbeHand"></span>
             <span class="inst-logo-diarc" data-svg="diarc"></span>
           </div>
           <span>DBE · Design for the Built Environment (LM-12) · Università degli Studi di Napoli Federico II · A.Y. 2026/2027</span>
-        </div>
+        </footer>
       </div>
     </section>
   </main>

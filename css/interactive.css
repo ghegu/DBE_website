@@ -1281,6 +1281,10 @@ body.is-stick-mode .sticker-tray-card { cursor: pointer; }
   display: block;
 }
 
+.mirror-frame.has-photo .mirror-editorial-overlay {
+  display: none;
+}
+
 /* Editorial DBE Print Frame Overlay on the Mirror */
 .mirror-editorial-overlay {
   position: absolute;

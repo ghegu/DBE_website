@@ -846,46 +846,28 @@
   color: var(--ink-muted);
 }
 
-/* ---------- 6. LESS TALK. MORE MAKING. + STUDY PLAN ---------- */
-.making-hero-band {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1.15fr) minmax(0, 0.85fr);
-  gap: clamp(1.5rem, 3.5vw, 3rem);
-  align-items: start;
-  margin-bottom: clamp(2.25rem, 4.5vw, 3.5rem);
-  padding-bottom: clamp(2rem, 4vw, 3rem);
-  border-bottom: 1px solid var(--rule-light);
-}
-
-.making-vertical-title {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-size: clamp(2.3rem, 4.4vw, 3.7rem);
-  font-weight: 900;
-  line-height: 0.86;
-  letter-spacing: -0.04em;
-  text-transform: uppercase;
-  margin: 0;
-  border-left: 4px solid var(--red);
-  padding-left: 0.75rem;
-  align-self: stretch;
+/* ---------- 6. LESS TALK. MORE MAKING. + STUDY PLAN (HORIZONTAL COMPACT LAYOUT) ---------- */
+.making-compact-band {
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  gap: 1.25rem;
+  margin-bottom: 1.75rem;
 }
 
 .making-method-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 0.85rem;
-  border-top: 1.5px solid var(--ink);
+  gap: 1.25rem;
   border-bottom: 1.5px solid var(--ink);
-  padding-block: 1rem;
+  padding-bottom: 1.15rem;
 }
 
 .method-step {
   display: flex;
   flex-direction: column;
   gap: 0.25rem;
+  border-left: 3px solid var(--red);
+  padding-left: 0.85rem;
 }
 
 .method-step-num {
@@ -896,31 +878,31 @@
 }
 
 .method-step strong {
-  font-size: 0.86rem;
+  font-size: 0.9rem;
   font-weight: 900;
   text-transform: uppercase;
 }
 
 .method-step span {
-  font-size: 0.8rem;
+  font-size: 0.84rem;
   color: var(--ink-muted);
-  line-height: 1.4;
+  line-height: 1.42;
 }
 
 .making-stats-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
 }
 
 .stat-card {
   border: 2px solid var(--ink);
-  padding: 1.25rem;
+  padding: 1.1rem 1.2rem;
   background: var(--paper);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 158px;
+  gap: 0.5rem;
   transition: transform var(--dur-fast) var(--ease-swiss), box-shadow var(--dur-fast);
 }
 
@@ -930,7 +912,7 @@
 }
 
 .stat-big-red {
-  font-size: clamp(3rem, 5vw, 4.6rem);
+  font-size: clamp(2.4rem, 3.8vw, 3.35rem);
   font-weight: 900;
   color: var(--red);
   line-height: 0.9;
@@ -939,17 +921,25 @@
 
 .stat-label {
   font-size: 0.88rem;
-  font-weight: 500;
+  font-weight: 800;
   color: var(--ink);
-  margin-top: 0.5rem;
 }
 
 .stat-sub {
   font-family: var(--font-mono);
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   color: var(--ink-soft);
   text-transform: uppercase;
-  margin-top: 0.25rem;
+  margin-top: 0.2rem;
+}
+
+.making-verified-note {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ink-muted);
+  border-left: 3px solid var(--cobalt);
+  padding-left: 0.9rem;
+  margin: 0;
 }
 
 /* Study Plan Controls & Swiss Table */
@@ -1687,18 +1677,19 @@
   display: block;
 }
 
-/* ---------- 9. CLOSING RED SPREAD & FOOTER (PAGE 12 + TRANSPARENT SHEET) ---------- */
+/* ---------- 9. CLOSING RED MIRROR SPREAD (PAGE 12) & 06 CONTACTS + FAQ ---------- */
 .closing-red {
   background: var(--red);
   color: var(--paper);
-  padding-top: clamp(4rem, 7vw, 6.5rem);
-  padding-bottom: 3rem;
+  padding-top: clamp(3.5rem, 6vw, 5.5rem);
+  padding-bottom: clamp(3.5rem, 6vw, 5rem);
   position: relative;
   overflow: hidden;
+  border-bottom: 2px solid var(--ink);
 }
 
 .closing-headline {
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 2.25rem 0;
   font-size: clamp(2.5rem, 6vw, 5.2rem);
   font-weight: 900;
   line-height: 0.92;
@@ -1707,33 +1698,105 @@
   text-align: center;
 }
 
-.closing-footer-grid {
+.contacts-bottom-section {
+  background: var(--paper);
+  color: var(--ink);
+  padding-top: var(--section-py);
+  padding-bottom: 3rem;
+}
+
+.contacts-cards-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  padding-top: 3rem;
-  margin-top: 3.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.35);
+  gap: 1.5rem;
+  margin-bottom: 3.5rem;
 }
 
-.footer-col h4 {
-  margin: 0 0 0.6rem 0;
-  font-size: 0.95rem;
+.contact-card {
+  border: 2px solid var(--ink);
+  background: var(--paper);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  transition: transform var(--dur-fast) var(--ease-swiss), box-shadow var(--dur-fast);
+}
+
+.contact-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0 var(--ink);
+}
+
+.contact-card h3 {
+  margin: 0.25rem 0 0.35rem 0;
+  font-size: 1.3rem;
   font-weight: 900;
   text-transform: uppercase;
+  letter-spacing: -0.02em;
 }
 
-.footer-col p, .footer-col a {
-  margin: 0.2rem 0;
+.contact-card p {
+  margin: 0;
   font-size: 0.92rem;
-  font-weight: 400;
-  display: block;
-  opacity: 0.94;
+  line-height: 1.5;
 }
 
-.footer-col a:hover {
+.contact-main-mail a {
+  display: inline-block;
+  font-weight: 900;
+  font-size: 1.05rem;
+  color: var(--red);
   text-decoration: underline;
-  color: var(--yellow);
+  margin-bottom: 0.25rem;
+}
+
+.contact-links-list {
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--rule-light);
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.contact-links-list a {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.contact-links-list a:hover {
+  color: var(--red);
+  text-decoration: underline;
+}
+
+.contact-hours-box {
+  margin-top: auto;
+  padding: 0.85rem 1rem;
+  background: var(--paper-warm);
+  border-left: 3px solid var(--cobalt);
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.85rem;
+}
+
+.faq-bottom-block {
+  padding-top: 2.5rem;
+  border-top: 2px solid var(--ink);
+}
+
+.faq-bottom-head {
+  margin-bottom: 1.35rem;
+}
+
+.faq-bottom-head h3 {
+  margin: 0.35rem 0 0 0;
+  font-size: clamp(1.5rem, 2.6vw, 2.15rem);
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.025em;
 }
 
 .footer-bottom-bar {
@@ -1748,6 +1811,16 @@
   font-family: var(--font-mono);
   font-size: 0.72rem;
   opacity: 0.88;
+}
+
+.footer-bottom-bar.footer-bottom-ink {
+  border-top: 2px solid var(--ink);
+  color: var(--ink);
+  opacity: 1;
+}
+
+.footer-bottom-bar.footer-bottom-ink .inst-logos > span {
+  color: var(--ink);
 }
 
 .footer-bottom-bar .inst-logo-fed svg,
@@ -1766,16 +1839,8 @@
   .quick-ribbon-item { border-bottom: 1px solid rgba(255, 255, 255, 0.16); }
   .manifesto-spread { grid-template-columns: 1fr; }
   .stitch-seam::after { display: none; }
-  .making-hero-band { grid-template-columns: 1fr; }
   .making-method-grid { grid-template-columns: 1fr; }
-  .making-vertical-title {
-    writing-mode: horizontal-tb;
-    transform: none;
-    border-left: 0;
-    border-bottom: 4px solid var(--red);
-    padding-left: 0;
-    padding-bottom: 0.65rem;
-  }
+  .making-stats-grid { grid-template-columns: repeat(2, 1fr); }
   .fed-heritage-strip { grid-template-columns: 1fr; }
   .wizard-grid { grid-template-columns: 1fr; }
   .steps-timeline { grid-template-columns: 1fr; }
@@ -1783,6 +1848,7 @@
   .step-card:last-child { border-bottom: 0; }
   .careers-grid { grid-template-columns: 1fr 1fr; }
   .campus-split { grid-template-columns: 1fr; }
+  .contacts-cards-grid { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 760px) {
@@ -1812,7 +1878,6 @@
   }
   .spread-pillars { grid-template-columns: 1fr; }
   .careers-grid { grid-template-columns: 1fr; }
-  .closing-footer-grid { grid-template-columns: 1fr; }
   .quick-ribbon-grid { grid-template-columns: 1fr; }
   .making-stats-grid { grid-template-columns: 1fr; }
   .campus-meta-grid { grid-template-columns: 1fr; }
