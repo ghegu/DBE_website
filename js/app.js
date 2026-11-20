@@ -164,6 +164,41 @@
     </svg>`;
   }
 
+  function buildStickerSVGBySrc(src, hiRes = true) {
+    const M = window.DBE_MASCOT;
+    if (!M) return null;
+    const badgeSpecs = {
+      'assets/svg/badge-red-intense.svg': ['#ED1C24', 'intense', '#FFFFFF'],
+      'assets/svg/badge-blue-eyebrow.svg': ['#2E3192', 'eyebrow', '#FFFFFF'],
+      'assets/svg/badge-yellow-peek.svg': ['#FFF200', 'peek', '#000000'],
+      'assets/svg/badge-cyan-wide.svg': ['#00AEEF', 'wide', '#FFFFFF'],
+      'assets/svg/badge-red-joy.svg': ['#ED1C24', 'joy', '#FFFFFF'],
+      'assets/svg/badge-blue-classic.svg': ['#2E3192', 'classic', '#FFFFFF']
+    };
+    const b = badgeSpecs[src];
+    if (b) {
+      const [bg, mood, txtCol] = b;
+      const eyes = (M.moods[mood] || M.moods.classic).map(d => `<path d="${d}" fill="#FFFFFF" fill-rule="evenodd"/>`).join('');
+      const sz = hiRes ? 640 : 200;
+      return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="${sz}" height="${sz}">
+        <circle cx="100" cy="100" r="98" fill="${bg}"/>
+        <g transform="translate(30, 12)"><path d="${M.outline}" fill="#FFFFFF"/><path d="${M.body}" fill="#000000"/>${eyes}</g>
+        <text x="100" y="180" text-anchor="middle" font-family="Helvetica Neue, Helvetica, Arial, sans-serif" font-weight="700" font-size="9.2" fill="${txtCol}">@dbe_federicosecondo</text>
+      </svg>`;
+    }
+    const m = src.match(/sticker-([a-z]+)\.svg$/);
+    if (!m) return null;
+    const mood = m[1];
+    const eyes = (M.moods[mood] || M.moods.classic).map(d => `<path d="${d}" fill="#FFFFFF" fill-rule="evenodd"/>`).join('');
+    const w = hiRes ? 560 : 140;
+    const h = hiRes ? 640 : 160;
+    return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 160" width="${w}" height="${h}">
+      <path d="${M.outline}" fill="#FFFFFF" stroke="#000000" stroke-width="1.2" stroke-linejoin="round"/>
+      <path d="${M.body}" fill="#000000"/>
+      ${eyes}
+    </svg>`;
+  }
+
   function renderAllMascots() {
     const mood = MOOD_ORDER[STATE.mascotMoodIdx % MOOD_ORDER.length];
     const heroInB = document.getElementById('hero-mascot-in-b');
@@ -1078,13 +1113,8 @@
       for (const n of nodes) {
         const src = n.dataset.src;
         const isBadge = n.dataset.isBadge === '1';
-        let svgStr = window.DBE_STICKER_SVGS && window.DBE_STICKER_SVGS[src];
+        const svgStr = buildStickerSVGBySrc(src, true);
         if (!svgStr) continue;
-
-        // Inject high-res explicit pixel width/height matching exact true aspect ratio so Safari renders razor-sharp!
-        const natW = isBadge ? 640 : 560;
-        const natH = isBadge ? 640 : 640; // 140:160 = 560:640 exact 7:8 ratio!
-        svgStr = svgStr.replace(/width="[^"]*"/, `width="${natW}"`).replace(/height="[^"]*"/, `height="${natH}"`);
 
         const img = new Image();
         const url = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svgStr);
@@ -1280,9 +1310,8 @@
       ctx.fillText('I’M IN · FUTURE DESIGNER', 84, H - 83);
 
       // Draw crisp vector Happy Mascotte bottom-right
-      const stSvg = window.DBE_STICKER_SVGS && window.DBE_STICKER_SVGS['assets/svg/sticker-shy.svg'];
-      if (stSvg) {
-        const hiSvg = stSvg.replace(/width="[^"]*"/, 'width="420"').replace(/height="[^"]*"/, 'height="480"');
+      const hiSvg = buildStickerSVGBySrc('assets/svg/sticker-shy.svg', true);
+      if (hiSvg) {
         const mImg = new Image();
         await new Promise(res => {
           mImg.onload = res;
