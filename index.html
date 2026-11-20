@@ -1,0 +1,1128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DBE · Design for the Built Environment | MSc, University of Naples Federico II</title>
+  <meta name="description" content="International Master of Science in Design for the Built Environment (LM-12) at DiARC, University of Naples Federico II. 2 Years, 120 ECTS, 100% English. Exhibit Design & Digital Design.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/interactive.css">
+</head>
+<body>
+
+  <!-- =====================================================================
+       STICKY SWISS NAVIGATION
+       ===================================================================== -->
+  <header class="site-nav" id="site-nav">
+    <div class="container nav-inner">
+      <a href="#hero" class="nav-brand" aria-label="DBE Home">
+        <span data-svg="dbeHand" aria-hidden="true"></span>
+        <span class="nav-brand-meta">
+          <span>DBE · UNINA</span>
+          <span class="nav-brand-sub">MSc LM-12 · DiARC</span>
+        </span>
+      </a>
+
+      <nav aria-label="Main Navigation">
+        <ul class="nav-links">
+          <li><a href="#program"><span class="nav-idx">01</span><span data-i18n="nav_program">Program</span></a></li>
+          <li><a href="#directions"><span class="nav-idx">02</span><span data-i18n="nav_directions">Directions</span></a></li>
+          <li><a href="#study-plan"><span class="nav-idx">03</span><span data-i18n="nav_plan">Study Plan</span></a></li>
+          <li><a href="#admissions"><span class="nav-idx">04</span><span data-i18n="nav_admissions">Admissions</span></a></li>
+          <li><a href="#campus"><span class="nav-idx">05</span><span data-i18n="nav_campus">Campus</span></a></li>
+          <li><a href="#contacts"><span class="nav-idx">06</span><span data-i18n="nav_contacts">Contacts</span></a></li>
+        </ul>
+      </nav>
+
+      <div class="nav-actions">
+        <div class="lang-switch" role="group" aria-label="Language switcher">
+          <button type="button" class="lang-btn is-active" data-lang="en">EN</button>
+          <button type="button" class="lang-btn" data-lang="it">IT</button>
+        </div>
+        <a href="#admissions" class="btn-nav-cta" data-i18n="nav_apply">Apply 26/27</a>
+        <button type="button" class="nav-burger" id="nav-burger" aria-label="Open menu" aria-expanded="false">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="2" y1="5" x2="18" y2="5"></line>
+            <line x1="2" y1="10" x2="18" y2="10"></line>
+            <line x1="2" y1="15" x2="18" y2="15"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Navigation Drawer -->
+  <div class="mobile-drawer" id="mobile-drawer" aria-hidden="true">
+    <ul class="mobile-drawer-links">
+      <li><a href="#program"><span>01</span> <em data-i18n="nav_program">Program</em></a></li>
+      <li><a href="#directions"><span>02</span> <em data-i18n="nav_directions">Directions</em></a></li>
+      <li><a href="#skills"><span>03</span> Skills</a></li>
+      <li><a href="#study-plan"><span>04</span> <em data-i18n="nav_plan">Study Plan</em></a></li>
+      <li><a href="#admissions"><span>05</span> <em data-i18n="nav_admissions">Admissions</em></a></li>
+      <li><a href="#campus"><span>06</span> <em data-i18n="nav_campus">Campus</em></a></li>
+      <li><a href="#stickers"><span>07</span> Stickers</a></li>
+      <li><a href="#contacts"><span>08</span> <em data-i18n="nav_contacts">Contacts</em></a></li>
+    </ul>
+    <div style="font-family: var(--font-mono); font-size: 0.78rem; opacity: 0.8;">
+      Palazzo Gravina · Via Monteoliveto 3, Naples<br>
+      infodiarcdbe@unina.it · @dbe_federicosecondo
+    </div>
+  </div>
+
+  <!-- On-Demand Editorial Bookmark Index Drawer (Only opens when user clicks Open Index in Section 03) -->
+  <aside class="bookmark-drawer" id="bookmark-drawer" aria-label="Editorial Page Index" aria-hidden="true">
+    <div class="bookmark-panel-head">
+      <span>DBE EDITORIAL INDEX</span>
+      <button type="button" id="bookmark-close-btn" aria-label="Close Index" style="background:var(--ink); color:#fff; border:0; width:24px; height:24px; cursor:pointer; font-weight:900;">×</button>
+    </div>
+    <ul class="bookmark-toc" id="bookmark-toc">
+      <li><a href="#hero"><span class="bm-dot"></span>01 · Cover</a></li>
+      <li><a href="#program"><span class="bm-dot"></span>02 · Manifesto</a></li>
+      <li><a href="#directions"><span class="bm-dot"></span>03 · Acetate Lens</a></li>
+      <li><a href="#skills"><span class="bm-dot"></span>04 · 6 Skills</a></li>
+      <li><a href="#study-plan"><span class="bm-dot"></span>05 · 120 ECTS Plan</a></li>
+      <li><a href="#admissions"><span class="bm-dot"></span>06 · Admissions 26/27</a></li>
+      <li><a href="#campus"><span class="bm-dot"></span>07 · Careers &amp; Campus</a></li>
+      <li><a href="#stickers"><span class="bm-dot"></span>08 · Sticker Sheet</a></li>
+      <li><a href="#contacts"><span class="bm-dot"></span>09 · Mirror &amp; Contacts</a></li>
+    </ul>
+  </aside>
+
+  <!-- Global Page Sticker Layer (scroll anchored, never blocks UI clicks) -->
+  <div class="page-sticker-layer" id="page-sticker-layer" aria-hidden="true"></div>
+
+  <!-- Live Ghost Cursor Preview when Sticker Mode is ON -->
+  <div class="sticker-ghost-cursor" id="sticker-ghost-cursor" aria-hidden="true">
+    <img id="sticker-ghost-img" src="assets/svg/sticker-eyebrow.svg" alt="">
+  </div>
+
+  <!-- Floating Sticker Mode Control Bar (Undo / Switch / Exit ESC) -->
+  <div class="sticker-mode-hud" id="sticker-mode-hud" role="region" aria-label="Sticker Mode Controls" aria-hidden="true">
+    <div class="hud-preview-wrap">
+      <button type="button" class="hud-btn" id="hud-prev-btn" aria-label="Previous sticker" style="padding:0.2rem 0.45rem;">←</button>
+      <img id="hud-sticker-thumb" src="assets/svg/sticker-eyebrow.svg" alt="Active sticker">
+      <button type="button" class="hud-btn" id="hud-next-btn" aria-label="Next sticker" style="padding:0.2rem 0.45rem;">→</button>
+    </div>
+    <span class="hud-label" id="hud-mode-label">STICKER MODE · CLICK ANYWHERE</span>
+    <button type="button" class="hud-btn" id="hud-undo-btn">Undo</button>
+    <button type="button" class="hud-btn" id="hud-clear-btn">Clear</button>
+    <button type="button" class="hud-btn hud-btn-exit" id="hud-exit-btn">✓ Done (ESC)</button>
+  </div>
+
+  <!-- =====================================================================
+       LIVING DBE MASCOTTE VIRTUAL ASSISTANT (ROAMING GUIDE)
+       ===================================================================== -->
+  <div class="mascot-guide-root" id="dbe-guide">
+    <section class="guide-panel" id="guide-panel" role="dialog" aria-label="DBE Mascotte Virtual Assistant" aria-hidden="true">
+      <header class="guide-panel-header">
+        <div class="guide-panel-id">
+          <div class="guide-panel-portrait" id="guide-panel-portrait"></div>
+          <div>
+            <div class="guide-panel-title">DBE MASCOTTE GUIDE</div>
+            <div class="guide-panel-mood" id="guide-panel-mood">MOOD: CURIOUS · ASK ANYTHING</div>
+          </div>
+        </div>
+        <button type="button" class="guide-close-btn" id="guide-close-btn" aria-label="Close Assistant">×</button>
+      </header>
+      <div class="guide-messages" id="guide-messages" aria-live="polite"></div>
+      <div class="guide-chips" id="guide-chips"></div>
+      <form class="guide-input-form" id="guide-input-form">
+        <input type="text" id="guide-input" placeholder="Ask about tuition, courses, B2, portfolio..." autocomplete="off" aria-label="Ask DBE Mascotte">
+        <button type="submit" id="guide-send-btn">ASK</button>
+      </form>
+    </section>
+
+    <button type="button" class="guide-character-btn" id="guide-toggle-btn" aria-expanded="false" aria-label="Open DBE Mascotte Assistant">
+      <span class="guide-reaction-chip" id="guide-reaction-chip">Ciao! Ask me anything about DBE</span>
+      <span class="guide-mascot-figure" id="guide-mascot-figure"></span>
+    </button>
+  </div>
+
+  <main>
+    <!-- ===================================================================
+         SECTION 1: HERO COVER (PAGE 1, PURE FLAT SIGNAL RED)
+         =================================================================== -->
+    <section class="hero-cover" id="hero">
+      <div class="container">
+        <div class="hero-institutions">
+          <div class="inst-logos">
+            <span class="inst-logo-fed" data-svg="federicoII" aria-label="Università degli Studi di Napoli Federico II"></span>
+            <span class="inst-logo-dbe" data-svg="dbeHand" aria-label="DBE Emblem"></span>
+            <span class="inst-logo-diarc" data-svg="diarc" aria-label="DiARC Department of Architecture"></span>
+          </div>
+          <span class="hero-edition-badge" data-i18n="hero_edition">A.Y. 2026 / 2027 · OPEN ACCESS (LM-12)</span>
+        </div>
+
+        <div class="hero-grid">
+          <div>
+            <div class="hero-lockup">
+              <div class="hero-wordmark-svg" data-svg="wordmarkSolid" aria-label="DBE"></div>
+              <div class="hero-mascot-in-b" id="hero-mascot-in-b" role="button" tabindex="0" title="Click to change Mascotte mood!" aria-label="DBE Mascotte inside letter B"></div>
+            </div>
+
+            <h1 class="hero-title">
+              DESIGN<br>
+              FOR<br>
+              THE BUILT<br>
+              ENVIRONMENT
+            </h1>
+            <p class="hero-subtitle" data-i18n="hero_subtitle">International Master of Science</p>
+            <p class="hero-meta-line">
+              <span>Naples, Italy · 2026/2027</span>
+              <span>Department of Architecture (DiARC)</span>
+            </p>
+
+            <div class="hero-ctas">
+              <a href="#admissions" class="btn btn-white" data-i18n="hero_cta_apply">How to Apply 2026/27 →</a>
+              <a href="#study-plan" class="btn btn-outline-white" data-i18n="hero_cta_plan">Explore 120 ECTS Study Plan</a>
+              <a href="#directions" class="btn btn-outline-white" data-i18n="hero_cta_lens">Try Acetate Filter</a>
+            </div>
+          </div>
+
+          <div class="hero-right-col">
+            <div class="hero-fact-card" aria-label="Course Quick Facts">
+              <div class="hero-fact-header">
+                <span data-i18n="fact_header">COURSE OVERVIEW · CODE DB1</span>
+                <span>UNINA · 1224</span>
+              </div>
+              <ul class="hero-fact-list">
+                <li class="hero-fact-item">
+                  <span class="hero-fact-label" data-i18n="fact_degree_k">Degree</span>
+                  <span class="hero-fact-val" data-i18n="fact_degree_v">MSc, Laurea Magistrale (LM-12 R)</span>
+                </li>
+                <li class="hero-fact-item">
+                  <span class="hero-fact-label" data-i18n="fact_dur_k">Duration</span>
+                  <span class="hero-fact-val" data-i18n="fact_dur_v">2 Years, 120 ECTS (CFU)</span>
+                </li>
+                <li class="hero-fact-item">
+                  <span class="hero-fact-label" data-i18n="fact_lang_k">Language</span>
+                  <span class="hero-fact-val" data-i18n="fact_lang_v">100% English (min. B2)</span>
+                </li>
+                <li class="hero-fact-item">
+                  <span class="hero-fact-label" data-i18n="fact_tracks_k">2nd Year</span>
+                  <span class="hero-fact-val" data-i18n="fact_tracks_v">Exhibit Design / Digital Design</span>
+                </li>
+                <li class="hero-fact-item">
+                  <span class="hero-fact-label" data-i18n="fact_venue_k">Campus</span>
+                  <span class="hero-fact-val" data-i18n="fact_venue_v">Palazzo Gravina, Naples</span>
+                </li>
+                <li class="hero-fact-item">
+                  <span class="hero-fact-label" data-i18n="fact_intake_k">26/27 Start</span>
+                  <span class="hero-fact-val" data-i18n="fact_intake_v">Extra-EU: Feb 15 · IT: Sep 1 · Lessons: Oct 5</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Peeking Interactive Cover Mascot -->
+      <div class="hero-peeking-wrap" id="hero-peeking-mascot" role="button" tabindex="0" aria-label="Click Mascotte to cycle expressions">
+        <div class="mascot-bubble" id="hero-mascot-bubble">che vvuò? click me!</div>
+        <div id="hero-peeking-svg"></div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         QUICK STUDENT ACCESS RIBBON (CRISP PAPER WHITE, BALANCED CONTRAST)
+         =================================================================== -->
+    <div class="quick-ribbon" aria-label="Quick student shortcuts">
+      <div class="quick-ribbon-grid">
+        <a href="#admissions" class="quick-ribbon-item">
+          <div>
+            <span class="quick-ribbon-num" data-i18n="ribbon_1_k">01 / PROSPECTIVE STUDENTS</span>
+            <span class="quick-ribbon-title" data-i18n="ribbon_1_t">26/27 Admissions &amp; Checklist</span>
+          </div>
+          <span class="quick-ribbon-arrow">→</span>
+        </a>
+        <a href="#directions" class="quick-ribbon-item">
+          <div>
+            <span class="quick-ribbon-num" data-i18n="ribbon_2_k">02 / CURRICULA</span>
+            <span class="quick-ribbon-title" data-i18n="ribbon_2_t">Exhibit vs Digital (Acetate Lens)</span>
+          </div>
+          <span class="quick-ribbon-arrow">→</span>
+        </a>
+        <a href="#study-plan" class="quick-ribbon-item">
+          <div>
+            <span class="quick-ribbon-num" data-i18n="ribbon_3_k">03 / COMPLETE MANIFESTO</span>
+            <span class="quick-ribbon-title" data-i18n="ribbon_3_t">All 120 ECTS Courses &amp; Professors</span>
+          </div>
+          <span class="quick-ribbon-arrow">→</span>
+        </a>
+        <a href="#contacts" class="quick-ribbon-item">
+          <div>
+            <span class="quick-ribbon-num" data-i18n="ribbon_4_k">04 / PRACTICAL INFO</span>
+            <span class="quick-ribbon-title" data-i18n="ribbon_4_t">Mirror Booth, Venue &amp; Contacts</span>
+          </div>
+          <span class="quick-ribbon-arrow">→</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ===================================================================
+         SECTION 2: EDITORIAL MANIFESTO SPREAD (PAGES 2 & 3, CLEAN SEAM)
+         =================================================================== -->
+    <section class="manifesto-spread" id="program" aria-label="Program Manifesto">
+      <div class="spread-left-red">
+        <span class="swiss-kicker">01 · PAGE 02 · MANIFESTO</span>
+        <blockquote class="spread-quote" data-i18n="spread_quote">
+          Here, design is not just about how things look. It’s about understanding how they work, how people interact with them and how they can be transformed.
+        </blockquote>
+
+        <div class="munari-fork-stage" id="munari-fork-btn" role="button" tabindex="0" aria-label="Interactive Bruno Munari talking fork">
+          <div class="munari-fork-svg" data-svg="forkCheVvuo"></div>
+          <div class="fork-caption-row">
+            <span class="fork-che-vvuo" id="fork-caption">che vvuò?</span>
+            <span class="fork-hint">TAP FORK · MUNARI HOMAGE</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="spread-right-white">
+        <span class="swiss-kicker" style="align-self:flex-start;">PAGE 03 · IDENTITY</span>
+
+        <h2 class="spread-headline" data-i18n="spread_h2">A SPACE IS NEVER<br>JUST A SPACE.</h2>
+
+        <div class="outline-dbe-lockup">
+          <div data-svg="wordmarkOutline" aria-hidden="true"></div>
+          <div class="mascot-inside-outline" id="outline-mascot" role="button" tabindex="0" aria-label="Click Mascotte"></div>
+        </div>
+
+        <div class="spread-body-cols editorial-light">
+          <p data-i18n="spread_p1">The world around us is constantly evolving. Spaces, objects, technologies and human behaviours shape the environments we experience every day.</p>
+          <p data-i18n="spread_p2">Design for the Built Environment explores these connections through a multidisciplinary approach at DiARC, University of Naples Federico II, combining design culture with technological, social and creative knowledge.</p>
+        </div>
+
+        <div class="spread-pillars">
+          <div class="pillar-cell">
+            <strong data-i18n="pillar1_t">Multidisciplinary DNA</strong>
+            <span data-i18n="pillar1_d">Architecture, industrial design, engineering, visual arts and digital media under one roof.</span>
+          </div>
+          <div class="pillar-cell">
+            <strong data-i18n="pillar2_t">Studio Driven</strong>
+            <span data-i18n="pillar2_d">Over 60% hands-on integrated studios, workshops, prototyping and 15 ECTS synthesis ateliers.</span>
+          </div>
+          <div class="pillar-cell">
+            <strong data-i18n="pillar3_t">Global in Naples</strong>
+            <span data-i18n="pillar3_d">100% English international cohort inside a 16th century palace in historic Naples.</span>
+          </div>
+        </div>
+
+        <div class="folded-fork-footer" id="folded-fork-btn" role="button" tabindex="0" title="Click to flip">
+          <div class="folded-fork-svg" data-svg="forkFolded"></div>
+          <span class="folded-fork-label" id="folded-fork-label">the end</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 3: ONE DEGREE. TWO DIRECTIONS. ACETATE DUALITY (PAGES 4 & 5)
+         =================================================================== -->
+    <section class="acetate-section" id="directions">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="swiss-kicker" data-i18n="acetate_kicker">02 · INTERACTIVE EDITORIAL SPREAD (PAGES 04 &amp; 05)</span>
+            <h2 class="section-heading" data-i18n="acetate_h2">ONE DEGREE. TWO DIRECTIONS.</h2>
+          </div>
+          <p class="section-lead" data-i18n="acetate_lead">
+            Just like the red and blue acetate sheets in our printed editorial, pick a color filter below, or drag the optical lens directly across the overlapping text and mascots, to decode Exhibit Design and Digital Design.
+          </p>
+        </div>
+
+        <div class="acetate-toolbar">
+          <div class="acetate-mode-group" role="tablist" aria-label="Acetate filter modes">
+            <button type="button" class="acetate-mode-btn is-active" data-lens="both" role="tab" aria-selected="true">
+              <span class="acetate-swatch sw-both"></span>
+              <span data-i18n="mode_both">Overlapped Print</span>
+            </button>
+            <button type="button" class="acetate-mode-btn" data-lens="red" role="tab" aria-selected="false">
+              <span class="acetate-swatch sw-red"></span>
+              <span data-i18n="mode_red">Red Acetate (Exhibit)</span>
+            </button>
+            <button type="button" class="acetate-mode-btn" data-lens="blue" role="tab" aria-selected="false">
+              <span class="acetate-swatch sw-blue"></span>
+              <span data-i18n="mode_blue">Blue Acetate (Digital)</span>
+            </button>
+            <button type="button" class="acetate-mode-btn" data-lens="lens-red" role="tab" aria-selected="false">
+              <span class="acetate-swatch sw-red"></span>
+              <span>Drag Red Lens</span>
+            </button>
+            <button type="button" class="acetate-mode-btn" data-lens="lens-blue" role="tab" aria-selected="false">
+              <span class="acetate-swatch sw-blue"></span>
+              <span>Drag Blue Lens</span>
+            </button>
+          </div>
+          <span class="acetate-status-pill" id="acetate-status-pill">DRAG RED LENS · EXHIBIT (DB102)</span>
+        </div>
+
+        <div class="acetate-spread">
+          <!-- Page 4: Acetate Pocket -->
+          <div class="acetate-pocket-col">
+            <div class="pocket-slot" id="pocket-red" role="button" tabindex="0" aria-label="Activate Red Acetate to read Exhibit Design">
+              <div class="pocket-vertical-copy">
+                <span data-i18n="pocket_red">PICK THE RED TO READ THE EXHIBIT PART</span>
+                <small data-i18n="pocket_click">Click or drag across spread</small>
+              </div>
+              <div class="acetate-card-thumb thumb-red">
+                <span>RED</span>
+                <span>EXHIBIT<br>DB102</span>
+              </div>
+            </div>
+
+            <div class="pocket-slot" id="pocket-blue" role="button" tabindex="0" aria-label="Activate Blue Acetate to read Digital Design">
+              <div class="pocket-vertical-copy">
+                <span data-i18n="pocket_blue">PICK THE BLUE TO READ THE DIGITAL PART</span>
+                <small data-i18n="pocket_click">Click or drag across spread</small>
+              </div>
+              <div class="acetate-card-thumb thumb-blue">
+                <span>BLUE</span>
+                <span>DIGITAL<br>DB103</span>
+              </div>
+            </div>
+
+            <div style="border-top:1px solid var(--rule-light); padding-top:1rem; font-family:var(--font-mono); font-size:0.72rem; color:var(--ink-muted); line-height:1.5;">
+              <strong style="color:var(--ink); display:block; margin-bottom:0.25rem;">OPTICAL PRINT PHYSICS</strong>
+              In the physical booklet, Exhibit is printed in cyan ink and Digital in red ink. Looking through red acetate cancels red ink and reveals cyan clearly, and vice versa.
+            </div>
+          </div>
+
+          <!-- Page 5: Overlapping Anaglyph Canvas (Text + Mascottes BOTH obey Acetate Physics!) -->
+          <div class="anaglyph-stage" id="anaglyph-stage">
+            <!-- LAYER A: Raw Overlapped Print (Base) -->
+            <div class="anaglyph-layer anaglyph-base">
+              <div class="anaglyph-vertical-col" aria-hidden="true">
+                <span class="anaglyph-giant-word word-exhibit">EXHIBIT.</span>
+                <span class="anaglyph-giant-word word-digital">DIGITAL.</span>
+              </div>
+              <div class="anaglyph-content-col">
+                <div>
+                  <h3 class="anaglyph-head">ONE DEGREE.<br>TWO DIRECTIONS.</h3>
+                  <p class="anaglyph-intro" data-i18n="ana_intro"></p>
+                </div>
+                <div class="dual-copy-stack">
+                  <p class="copy-exhibit" data-i18n="copy_exhibit"></p>
+                  <p class="copy-digital" data-i18n="copy_digital"></p>
+                </div>
+                <div class="anaglyph-mascots-row">
+                  <button type="button" class="anaglyph-mascot-unit mascot-exhibit-unit" data-trigger-lens="red" aria-label="Read Exhibit Design">
+                    <span data-svg="mascotCyan"></span>
+                    <span class="anaglyph-mascot-tag" style="color:var(--cyan-dark);">EXHIBIT · DB102</span>
+                  </button>
+                  <button type="button" class="anaglyph-mascot-unit mascot-digital-unit" data-trigger-lens="blue" aria-label="Read Digital Design">
+                    <span data-svg="mascotRed"></span>
+                    <span class="anaglyph-mascot-tag" style="color:var(--red);">DIGITAL · DB103</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- LAYER B: RED ACETATE DECODED (Reveals EXHIBIT text + EXHIBIT mascot cleanly!) -->
+            <div class="anaglyph-layer anaglyph-decoded decoded-red" id="decoded-red" aria-hidden="true">
+              <div class="anaglyph-vertical-col">
+                <span class="anaglyph-giant-word word-exhibit">EXHIBIT.</span>
+                <span class="anaglyph-giant-word word-digital">DIGITAL.</span>
+              </div>
+              <div class="anaglyph-content-col">
+                <div>
+                  <h3 class="anaglyph-head">ONE DEGREE.<br>TWO DIRECTIONS.</h3>
+                  <p class="anaglyph-intro" data-i18n="ana_intro"></p>
+                </div>
+                <div class="dual-copy-stack">
+                  <p class="copy-exhibit" data-i18n="copy_exhibit"></p>
+                  <p class="copy-digital" data-i18n="copy_digital"></p>
+                </div>
+                <div class="anaglyph-mascots-row">
+                  <div class="anaglyph-mascot-unit mascot-exhibit-unit">
+                    <span data-svg="mascotCyan"></span>
+                    <span class="anaglyph-mascot-tag">EXHIBIT · DB102</span>
+                  </div>
+                  <div class="anaglyph-mascot-unit mascot-digital-unit">
+                    <span data-svg="mascotRed"></span>
+                    <span class="anaglyph-mascot-tag">DIGITAL · DB103</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- LAYER C: BLUE ACETATE DECODED (Reveals DIGITAL text + DIGITAL mascot cleanly!) -->
+            <div class="anaglyph-layer anaglyph-decoded decoded-blue" id="decoded-blue" aria-hidden="true">
+              <div class="anaglyph-vertical-col">
+                <span class="anaglyph-giant-word word-exhibit">EXHIBIT.</span>
+                <span class="anaglyph-giant-word word-digital">DIGITAL.</span>
+              </div>
+              <div class="anaglyph-content-col">
+                <div>
+                  <h3 class="anaglyph-head">ONE DEGREE.<br>TWO DIRECTIONS.</h3>
+                  <p class="anaglyph-intro" data-i18n="ana_intro"></p>
+                </div>
+                <div class="dual-copy-stack">
+                  <p class="copy-exhibit" data-i18n="copy_exhibit"></p>
+                  <p class="copy-digital" data-i18n="copy_digital"></p>
+                </div>
+                <div class="anaglyph-mascots-row">
+                  <div class="anaglyph-mascot-unit mascot-exhibit-unit">
+                    <span data-svg="mascotCyan"></span>
+                    <span class="anaglyph-mascot-tag">EXHIBIT · DB102</span>
+                  </div>
+                  <div class="anaglyph-mascot-unit mascot-digital-unit">
+                    <span data-svg="mascotRed"></span>
+                    <span class="anaglyph-mascot-tag">DIGITAL · DB103</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Draggable Optical Lens Frame -->
+            <div class="optical-lens-frame" id="optical-lens-frame" aria-label="Draggable acetate lens">
+              <div class="lens-frame-bar">
+                <span id="lens-frame-label">RED ACETATE · EXHIBIT</span>
+                <span>DRAG ✥</span>
+              </div>
+              <span class="lens-frame-tip">MOVE OVER TEXT &amp; MASCOTS</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Side-by-Side Comparison Cards -->
+        <div class="tracks-compare-grid">
+          <article class="track-summary-card card-exhibit" id="card-exhibit">
+            <div class="track-summary-head">
+              <h3>Exhibit Design <span style="color:var(--red);">· DB102</span></h3>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; font-weight:900; background:var(--red); color:#fff; padding:0.25rem 0.6rem;">YEAR 2 · 60 ECTS</span>
+            </div>
+            <ul class="track-bullets">
+              <li><strong>Focus:</strong> Museums, temporary pavilions, pop-up architecture, retail, interiors and cultural heritage.</li>
+              <li><strong>Core Studios:</strong> Digital Manufacturing Studio (10), Exhibit Design for Interiors &amp; Lighting (10), Atelier of Temporary Spaces (15).</li>
+              <li><strong>Tools:</strong> Parametric and generative modeling, CNC and 3D digital fabrication, museography, photometric lighting design.</li>
+            </ul>
+            <a href="#study-plan" class="btn btn-red" data-jump-track="exhibit">Inspect Exhibit Courses →</a>
+          </article>
+
+          <article class="track-summary-card card-digital" id="card-digital">
+            <div class="track-summary-head">
+              <h3>Digital Design <span style="color:var(--cyan-dark);">· DB103</span></h3>
+              <span style="font-family:var(--font-mono); font-size:0.75rem; font-weight:900; background:var(--cyan); color:var(--ink); padding:0.25rem 0.6rem;">YEAR 2 · 60 ECTS</span>
+            </div>
+            <ul class="track-bullets">
+              <li><strong>Focus:</strong> Interaction Design (UI/UX), digital products and services, HCI, AR/VR, branding and connected IoT spaces.</li>
+              <li><strong>Core Studios:</strong> Digital Design &amp; Aesthetics Studio (10), Systemic Design &amp; Web Branding (10), Atelier of Interaction Design (15).</li>
+              <li><strong>Tools:</strong> User centered prototyping, data processing systems, multimedia storytelling, systemic service design.</li>
+            </ul>
+            <a href="#study-plan" class="btn btn-black" data-jump-track="digital">Inspect Digital Courses →</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 4: COBALT DIE-CUT WINDOW + YELLOW FOLDOUT + BOOKMARK (P.7 TO 9)
+         =================================================================== -->
+    <section class="cobalt-diecut-section" id="skills">
+      <div class="cobalt-wallpaper" aria-hidden="true">
+        <div>KNOWLEDGE AND COMPETENCIES · KNOWLEDGE AND COMPETENCIES · KNOWLEDGE AND COMPETENCIES</div>
+        <div>THE SKILLS · THE SKILLS · THE SKILLS · THE SKILLS · THE SKILLS · THE SKILLS</div>
+        <div>KNOWLEDGE AND COMPETENCIES · KNOWLEDGE AND COMPETENCIES · KNOWLEDGE AND COMPETENCIES</div>
+        <div>THE SKILLS · THE SKILLS · THE SKILLS · THE SKILLS · THE SKILLS · THE SKILLS</div>
+        <div>KNOWLEDGE AND COMPETENCIES · KNOWLEDGE AND COMPETENCIES · KNOWLEDGE AND COMPETENCIES</div>
+        <div>THE SKILLS · THE SKILLS · THE SKILLS · THE SKILLS · THE SKILLS · THE SKILLS</div>
+        <div>KNOWLEDGE AND COMPETENCIES · KNOWLEDGE AND COMPETENCIES · KNOWLEDGE AND COMPETENCIES</div>
+        <div>THE SKILLS · THE SKILLS · THE SKILLS · THE SKILLS · THE SKILLS · THE SKILLS</div>
+      </div>
+
+      <div class="container">
+        <div class="diecut-stage">
+          <div class="diecut-frame-outer">
+            <div class="diecut-top-label">
+              <div>
+                <span class="swiss-kicker" data-i18n="skills_kicker">03 · DIE-CUT WINDOW &amp; EXPANDABLE FOLDOUT (PAGES 07 TO 09)</span>
+                <h2 class="diecut-title-frame" data-i18n="skills_h2">KNOWLEDGE AND COMPETENCIES</h2>
+              </div>
+              <div style="display:flex; gap:0.65rem; flex-wrap:wrap;">
+                <button type="button" class="btn btn-yellow" id="foldout-toggle-btn" aria-expanded="true" data-i18n="skills_btn_fold">Fold Sheet</button>
+                <button type="button" class="btn btn-outline-white" id="open-index-btn" data-i18n="skills_bm_btn">Open Page Index</button>
+              </div>
+            </div>
+
+            <!-- Die-Cut Window with Infinite Tiled THINK IT. MAKE IT. CHANGE IT. Backdrop -->
+            <div class="diecut-window">
+              <div class="think-make-backdrop">
+                <div class="yellow-foldout" id="yellow-foldout">
+                  <div class="yellow-foldout-header">
+                    <div class="yellow-foldout-lead">
+                      <h3 data-i18n="yellow_h3">Ideas are only the beginning.</h3>
+                      <p data-i18n="yellow_p"></p>
+                    </div>
+                    <div style="font-family:var(--font-mono); font-size:0.74rem; font-weight:900; border:2px solid var(--ink); padding:0.55rem 0.8rem; background:var(--paper); text-align:center;">
+                      CLICK ANY SKILL<br>01 → 06
+                    </div>
+                  </div>
+
+                  <div class="yellow-foldout-body">
+                    <div class="foldout-vertical-label">six skills to develop</div>
+                    <div>
+                      <div class="skills-six-grid" id="skills-six-grid"></div>
+                      <div class="skill-spotlight-bar" id="skill-spotlight-bar" aria-live="polite"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Editorial Bookmark Artifact (segnalibro copia.pdf) -->
+          <div class="editorial-bookmark-card" aria-label="DBE Bookmark Artifact">
+            <div class="bookmark-dots" aria-hidden="true">
+              <span class="bookmark-dot" style="top:16%; left:14%;"></span>
+              <span class="bookmark-dot" style="top:30%; left:22%;"></span>
+              <span class="bookmark-dot" style="top:44%; left:34%;"></span>
+              <span class="bookmark-dot" style="top:58%; left:12%;"></span>
+              <span class="bookmark-dot" style="top:70%; left:46%;"></span>
+              <span class="bookmark-dot" style="top:82%; left:10%;"></span>
+            </div>
+            <div class="bookmark-top-mascot" id="bm-top-mascot"></div>
+            <div class="bookmark-mid-content">
+              <span data-svg="dbeHand"></span>
+              <span>DBE BOOKMARK<br>2026 / 2027</span>
+              <button type="button" class="canvas-mini-btn" style="background:var(--ink); color:var(--yellow); border-color:var(--ink); width:100%;" id="bm-card-pin-btn">OPEN INDEX →</button>
+            </div>
+            <div class="bookmark-bottom-mascot" id="bm-bottom-mascot"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 5: LESS TALK. MORE MAKING. + COMPLETE 120 ECTS STUDY PLAN (P.10)
+         =================================================================== -->
+    <section class="section-block" id="study-plan">
+      <div class="container">
+        <div class="making-hero-band">
+          <h2 class="making-vertical-title" data-i18n="plan_h2">LESS TALK.<br>MORE MAKING.</h2>
+
+          <div style="display:flex; flex-direction:column; gap:1.45rem;">
+            <div>
+              <span class="swiss-kicker" data-i18n="plan_kicker">04 · COMPLETE 2026/2027 STUDY PLAN (120 ECTS)</span>
+              <p class="editorial-light" style="font-size:1.1rem; margin:0.9rem 0 0 0;" data-i18n="plan_intro"></p>
+            </div>
+
+            <div class="making-method-grid">
+              <div class="method-step">
+                <span class="method-step-num">01</span>
+                <strong data-i18n="method_1_t">Concept &amp; Research</strong>
+                <span data-i18n="method_1_d">Analyze spaces, materials, and human habits before designing.</span>
+              </div>
+              <div class="method-step">
+                <span class="method-step-num">02</span>
+                <strong data-i18n="method_2_t">Hands-On Prototyping</strong>
+                <span data-i18n="method_2_d">Build physical scale models, CNC pieces, and interactive UI systems.</span>
+              </div>
+              <div class="method-step">
+                <span class="method-step-num">03</span>
+                <strong data-i18n="method_3_t">Critique &amp; Real Briefs</strong>
+                <span data-i18n="method_3_d">Weekly studio reviews, industry workshops, and a mandatory traineeship.</span>
+              </div>
+            </div>
+
+            <p style="font-family:var(--font-mono); font-size:0.78rem; color:var(--ink-muted); border-left:3px solid var(--cobalt); padding-left:0.9rem; margin:0;" data-i18n="plan_note"></p>
+          </div>
+
+          <div class="making-stats-grid">
+            <div class="stat-card">
+              <span class="stat-big-red">10</span>
+              <div>
+                <div class="stat-label">ECTS Industrial Design Studio</div>
+                <div class="stat-sub">Year 1 · Core Integrated Studio</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-big-red">15</span>
+              <div>
+                <div class="stat-label">ECTS Synthesis Atelier</div>
+                <div class="stat-sub">Year 2 · Exhibit or Interaction</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-big-red">06</span>
+              <div>
+                <div class="stat-label">ECTS Traineeship</div>
+                <div class="stat-sub">Studios · Companies · Erasmus+</div>
+              </div>
+            </div>
+            <div class="stat-card">
+              <span class="stat-big-red">05</span>
+              <div>
+                <div class="stat-label">ECTS Professional Workshop</div>
+                <div class="stat-sub">Industry &amp; Cultural Briefs</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 120 ECTS Visual Composition Bar -->
+        <div class="ects-bar-wrap">
+          <div class="ects-bar-head">
+            <strong>2-YEAR CREDIT ARCHITECTURE</strong>
+            <span id="ects-bar-total">120 ECTS TOTAL (60 Y1 + 60 Y2)</span>
+          </div>
+          <div class="ects-bar-track" aria-hidden="true">
+            <div class="ects-seg" style="width:50%; background:var(--cobalt);" title="Year 1 Common Foundation: 60 ECTS"></div>
+            <div class="ects-seg" style="width:29.17%; background:var(--red);" id="ects-track-seg" title="Year 2 Track Studios: 35 ECTS"></div>
+            <div class="ects-seg" style="width:4.17%; background:var(--yellow);" title="Professional Design Workshop: 5 ECTS"></div>
+            <div class="ects-seg" style="width:6.66%; background:#999;" title="Electives: 8 ECTS"></div>
+            <div class="ects-seg" style="width:5%; background:var(--cyan);" title="Traineeship: 6 ECTS"></div>
+            <div class="ects-seg" style="width:5%; background:var(--ink);" title="Final Thesis: 6 ECTS"></div>
+          </div>
+          <div class="ects-legend">
+            <span><i class="ects-dot" style="background:var(--cobalt);"></i> Y1 Common (60)</span>
+            <span><i class="ects-dot" style="background:var(--red);"></i> Y2 Track Studios (35)</span>
+            <span><i class="ects-dot" style="background:var(--yellow);"></i> Workshop (5)</span>
+            <span><i class="ects-dot" style="background:#999;"></i> Electives (8)</span>
+            <span><i class="ects-dot" style="background:var(--cyan);"></i> Traineeship (6)</span>
+            <span><i class="ects-dot" style="background:var(--ink);"></i> Thesis (6)</span>
+          </div>
+        </div>
+
+        <!-- Filter Controls -->
+        <div class="plan-controls">
+          <div class="tab-strip" id="plan-track-tabs" role="tablist" aria-label="Curriculum filter">
+            <button type="button" class="tab-btn is-active" data-track="all" role="tab" aria-selected="true">All 120 ECTS</button>
+            <button type="button" class="tab-btn" data-track="y1" role="tab" aria-selected="false">Year 1 · Foundation (60)</button>
+            <button type="button" class="tab-btn" data-track="exhibit" role="tab" aria-selected="false">Year 2 · Exhibit DB102</button>
+            <button type="button" class="tab-btn" data-track="digital" role="tab" aria-selected="false">Year 2 · Digital DB103</button>
+          </div>
+
+          <div class="plan-filters">
+            <button type="button" class="filter-pill is-active" data-sem="all">All Semesters</button>
+            <button type="button" class="filter-pill" data-sem="1">Sem 1</button>
+            <button type="button" class="filter-pill" data-sem="2">Sem 2</button>
+            <input type="search" class="plan-search" id="plan-search" placeholder="Search course, SSD, professor..." aria-label="Search study plan">
+          </div>
+        </div>
+
+        <!-- Swiss Tabular Course Directory -->
+        <div class="course-directory">
+          <div class="course-dir-head">
+            <span>TRACK</span>
+            <span>COURSE / INTEGRATED STUDIO</span>
+            <span>SSD</span>
+            <span>SEMESTER</span>
+            <span>ECTS</span>
+            <span></span>
+          </div>
+          <div id="course-list-body"></div>
+        </div>
+
+        <!-- Verified Academic Downloads Strip (Working URLs!) -->
+        <div style="margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.85rem; align-items:center; justify-content:space-between; padding:1.1rem 1.25rem; border:1.5px solid var(--ink); background:var(--paper-warm);">
+          <div style="font-size:0.88rem;">
+            <strong>2026/2027 First Semester Calendar:</strong>
+            Year 1 lessons <strong>5 Oct 2026 to 22 Jan 2027</strong> · Year 2 lessons <strong>14 Sep to 18 Dec 2026</strong> (Palazzo Gravina, Rooms 18, 19, 21)
+          </div>
+          <div style="display:flex; flex-wrap:wrap; gap:0.6rem;">
+            <a href="https://www.diarc.dbe.unina.it/images/DBE_First_Semester_Timetable_2026-2027_EN.pdf" target="_blank" rel="noopener" class="btn btn-black" style="padding:0.55rem 0.95rem; font-size:0.74rem;">Timetable 26/27 (PDF) ↗</a>
+            <a href="https://www.corsi.unina.it/DB1/" target="_blank" rel="noopener" class="btn btn-yellow" style="padding:0.55rem 0.95rem; font-size:0.74rem;">corsi.unina.it / DB1 ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 6: ADMISSIONS + TRANSLUCENT TRACING SHEET OVERLAY (PAGE 11)
+         =================================================================== -->
+    <section class="section-block admissions-band" id="admissions">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="swiss-kicker" data-i18n="adm_kicker">05 · ADMISSIONS &amp; REQUIREMENTS 2026/2027 (PAGE 11 + TRACING SHEET)</span>
+            <h2 class="section-heading" data-i18n="adm_h2">CLEAR PATH TO ENROLLMENT.</h2>
+          </div>
+          <p class="section-lead" data-i18n="adm_lead"></p>
+        </div>
+
+        <!-- Page 11 + trasparente.pdf: Translucent Tracing Sheet "READY TO SHAPE YOUR FUTURE?" over Federico II Stats & Requirements! -->
+        <div class="vellum-stage-section5">
+          <div class="vellum-box-wrap" id="vellum-box">
+            <div class="fed-heritage-strip">
+              <div class="heritage-stat">
+                <span class="stat-big-red">80.000+</span>
+                <p>Students at Federico II</p>
+                <small>One of Europe’s largest and most vibrant public research universities.</small>
+              </div>
+              <div class="heritage-stat">
+                <span class="stat-big-red">1224</span>
+                <p>University founded</p>
+                <small>The world’s oldest public secular university, with over 800 years of knowledge in Naples.</small>
+              </div>
+              <div class="req-pillars-box">
+                <div class="req-pillar-item">
+                  <strong>Bachelor’s Degree (≥ 180 ECTS)</strong>
+                  <span>Italian classes L-03, L-04, L-07, L-09, L-17, L-21, L-23, L-31 or equivalent foreign degree.</span>
+                </div>
+                <div class="req-pillar-item">
+                  <strong>English B2 Minimum</strong>
+                  <span>Official certificate (IELTS, TOEFL, Cambridge) or verification during the departmental interview.</span>
+                </div>
+                <div class="req-pillar-item">
+                  <strong>Open Access · Committee Assessment</strong>
+                  <span>No fixed enrollment cap, admission via evaluation of academic record, CV, and portfolio.</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Frosted Translucent Tracing Sheet (trasparente copia.pdf!) -->
+            <div class="vellum-sheet" id="vellum-sheet" role="button" tabindex="0" aria-label="Click to peel back the translucent tracing sheet">
+              <div class="vellum-chaotic-type">
+                <div class="vellum-line">
+                  <span style="transform:rotate(14deg) translateY(-4px);">R</span>
+                  <span style="transform:rotate(6deg) translateY(8px);">E</span>
+                  <span style="transform:rotate(-8deg);">A</span>
+                  <span style="transform:rotate(-11deg) translateY(6px);">D</span>
+                  <span style="transform:rotate(-16deg) translateY(-8px);">Y</span>
+                </div>
+                <div class="vellum-line">
+                  <span style="transform:rotate(-12deg);">T</span>
+                  <span style="transform:rotate(10deg) translateY(-6px);">O</span>
+                  <span style="width:0.25em;"></span>
+                  <span style="transform:rotate(-8deg) translateY(8px);">S</span>
+                  <span style="transform:rotate(11deg);">H</span>
+                  <span style="transform:rotate(-10deg) translateY(-4px);">A</span>
+                  <span style="transform:rotate(7deg) translateY(4px);">P</span>
+                  <span style="transform:rotate(-5deg);">E</span>
+                </div>
+                <div class="vellum-line">
+                  <span style="transform:rotate(-10deg) translateY(4px);">Y</span>
+                  <span style="transform:rotate(12deg) translateY(-5px);">O</span>
+                  <span style="transform:rotate(-6deg) translateY(6px);">U</span>
+                  <span style="transform:rotate(-13deg) translateY(-6px);">R</span>
+                </div>
+                <div class="vellum-line">
+                  <span style="transform:rotate(-14deg);">F</span>
+                  <span style="transform:rotate(8deg) translateY(6px);">U</span>
+                  <span style="transform:rotate(-6deg);">T</span>
+                  <span style="transform:rotate(12deg) translateY(8px);">U</span>
+                  <span style="transform:rotate(-12deg) translateY(-6px);">R</span>
+                  <span style="transform:rotate(7deg) translateY(5px);">E</span>
+                  <span style="transform:rotate(15deg) scale(1.18);">?</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="vellum-controls-bar">
+            <div class="vellum-slider-wrap">
+              <span data-i18n="vellum_slider_lbl">PEEL TRACING SHEET:</span>
+              <input type="range" id="vellum-slider" min="0" max="100" value="0" aria-label="Slide to peel back translucent tracing sheet">
+            </div>
+            <button type="button" class="btn btn-red" id="vellum-toggle-btn" style="padding:0.55rem 1rem; font-size:0.74rem;">Lift Vellum Sheet →</button>
+          </div>
+          <p style="font-family:var(--font-mono); font-size:0.74rem; color:var(--ink-muted); margin:0.55rem 0 0 0;" data-i18n="vellum_hint"></p>
+        </div>
+
+        <!-- Interactive Personalized Eligibility & Application Checklist Wizard -->
+        <div class="wizard-grid">
+          <div class="wizard-form-card">
+            <span class="swiss-kicker" style="margin-bottom:1rem;">30 SECOND APPLICATION CHECKER</span>
+            <h3 style="margin:0 0 1.25rem 0; font-size:1.35rem; font-weight:900; text-transform:uppercase;">Build Your 2026/27 Checklist</h3>
+
+            <div class="wizard-group">
+              <label class="wizard-label">1. Citizenship / Residence Status</label>
+              <div class="seg-toggle" id="wiz-citizenship" style="grid-template-columns: repeat(3, 1fr);">
+                <button type="button" class="is-active" data-val="it">Italian</button>
+                <button type="button" data-val="eu">EU / EEA</button>
+                <button type="button" data-val="noneu">Extra-EU</button>
+              </div>
+            </div>
+
+            <div class="wizard-group">
+              <label class="wizard-label" for="wiz-degree">2. Bachelor’s Degree Background</label>
+              <select id="wiz-degree" class="wizard-select">
+                <option value="direct">Design / Architecture / Urbanism (L-04, L-17, L-21, L-23)</option>
+                <option value="eng">Engineering / Computer Science (L-07, L-09, L-31)</option>
+                <option value="arts">Fine Arts / Visual Design (L-03 / AFAM / Foreign Equivalent)</option>
+                <option value="other">Other Discipline (≥180 ECTS, Individual Review)</option>
+              </select>
+            </div>
+
+            <div class="wizard-group" style="margin-bottom:0;">
+              <label class="wizard-label">3. English Language Level</label>
+              <div class="seg-toggle" id="wiz-english">
+                <button type="button" class="is-active" data-val="cert">I have a B2+ Certificate</button>
+                <button type="button" data-val="interview">No Certificate (Interview)</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="wizard-result-card" id="wizard-result-card" aria-live="polite"></div>
+        </div>
+
+        <!-- 5-Step Admission Timeline -->
+        <div class="steps-timeline">
+          <div class="step-card">
+            <span class="step-num">01</span>
+            <h4>Verify Requirements</h4>
+            <p>Confirm your ≥180 ECTS Bachelor’s degree and B2 English readiness (certificate or interview).</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">02</span>
+            <h4>Prepare Dossier</h4>
+            <p>Assemble CV, academic transcript, motivation letter, and design portfolio (mandatory for Extra-EU).</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">03</span>
+            <h4>Submit Application</h4>
+            <p>Extra-EU from <strong>Feb 15</strong> via email and Universitaly; Italian students from <strong>Sep 1</strong> via Segrepass.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">04</span>
+            <h4>Assessment</h4>
+            <p>Admissions Committee reviews your academic background and conducts the online interview when required.</p>
+          </div>
+          <div class="step-card">
+            <span class="step-num">05</span>
+            <h4>Welcome to Naples</h4>
+            <p>Complete enrollment at Federico II (income based ISEE tuition), classes start <strong>October 5, 2026</strong>.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 7: CAREERS, PALAZZO GRAVINA CAMPUS, FACULTY & FAQ
+         =================================================================== -->
+    <section class="section-block" id="campus">
+      <div class="container">
+        <div class="section-header-row">
+          <div>
+            <span class="swiss-kicker" data-i18n="campus_kicker">06 · CAREERS, PALAZZO GRAVINA &amp; FAQ</span>
+            <h2 class="section-heading" data-i18n="campus_h2">FROM PALAZZO GRAVINA TO THE WORLD.</h2>
+          </div>
+          <p class="section-lead" data-i18n="campus_lead"></p>
+        </div>
+
+        <div class="careers-grid" id="careers-grid"></div>
+
+        <div class="campus-split">
+          <div class="campus-card">
+            <div>
+              <span class="swiss-kicker" style="color:var(--yellow);">STUDY IN HISTORIC NAPLES</span>
+              <h3>PALAZZO GRAVINA<br>VIA MONTEOLIVETO 3</h3>
+              <p style="margin:0; font-size:0.98rem; line-height:1.58; opacity:0.94;">
+                Built in the 16th century and home to the Department of Architecture (DiARC), Palazzo Gravina sits in Naples’ UNESCO historic center, minutes on foot from the world famous <strong>Toledo</strong>, <strong>Dante</strong>, and <strong>Università</strong> Art Metro stations, plus Cumana and Montesanto funiculars.
+              </p>
+            </div>
+
+            <div class="campus-meta-grid">
+              <div class="campus-meta-cell">
+                <strong>DBE Teaching Rooms</strong>
+                <span>2nd Floor, Rooms 18, 19, 21<br>Design Studios, Prototyping &amp; Reviews</span>
+              </div>
+              <div class="campus-meta-cell">
+                <strong>Opening Hours for Students</strong>
+                <span>Mon, Wed, Fri: 09:00 to 12:00<br>Tue &amp; Thu: 09:00 to 12:00 / 14:30 to 16:30</span>
+              </div>
+              <div class="campus-meta-cell">
+                <strong>Student Affairs Office</strong>
+                <span>Via Forno Vecchio 36, 80134 Naples<br>Enrollment, Careers &amp; Certificates</span>
+              </div>
+              <div class="campus-meta-cell">
+                <strong>Erasmus+ &amp; Mobility</strong>
+                <span>Active European studio exchanges and international traineeships (Prof. Cristina Mattiucci)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="faculty-card">
+            <span class="swiss-kicker">COORDINATION &amp; PEOPLE</span>
+            <h3 style="margin:0.4rem 0 0 0; font-size:1.45rem; font-weight:900; text-transform:uppercase;">Who Guides Your Journey</h3>
+            <ul class="faculty-list">
+              <li class="faculty-item">
+                <div class="faculty-role">Program Coordinator</div>
+                <div class="faculty-name">Prof. Alfonso Morone</div>
+                <div class="faculty-desc">Industrial Design · <a href="mailto:alfonso.morone@unina.it" style="text-decoration:underline;">alfonso.morone@unina.it</a></div>
+              </li>
+              <li class="faculty-item">
+                <div class="faculty-role">Orientation Board</div>
+                <div class="faculty-name">Prof. Nicola Flora · Prof. Alfonso Morone · Prof. Alessandra Pagliano</div>
+                <div class="faculty-desc">Guidance for prospective Italian and international candidates.</div>
+              </li>
+              <li class="faculty-item">
+                <div class="faculty-role">Traineeship &amp; Internships</div>
+                <div class="faculty-name">Prof. Mara Capone · Prof. Ernesto Ramon Rispoli · Prof. Ivo Caruso</div>
+                <div class="faculty-desc">Extramoenia, intramoenia and Erasmus+ Traineeships (6 ECTS).</div>
+              </li>
+              <li class="faculty-item">
+                <div class="faculty-role">DBE Academic Secretariat</div>
+                <div class="faculty-name">Amelia Corbisiero &amp; Patrizia Masucci</div>
+                <div class="faculty-desc"><a href="mailto:infodiarcdbe@unina.it" style="text-decoration:underline; font-weight:700;">infodiarcdbe@unina.it</a> · DiARC HQ: Via Toledo 402</div>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <h3 style="margin:0 0 1.25rem 0; font-size:1.5rem; font-weight:900; text-transform:uppercase;">Frequently Asked Questions</h3>
+          <div class="faq-list" id="faq-list"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 8: "TAKE ME WITH YOU!" INTERACTIVE STICKER SHEET (PAGE 6)
+         =================================================================== -->
+    <section class="stickers-section" id="stickers">
+      <div class="container">
+        <div class="section-header-row" style="border-bottom-color:var(--red);">
+          <div>
+            <span class="swiss-kicker" data-i18n="stickers_kicker">07 · INTERACTIVE STICKER SHEET (PAGE 06)</span>
+            <h2 class="stickers-headline" data-i18n="stickers_h2">TAKE ME WITH YOU!</h2>
+          </div>
+          <p class="section-lead" data-i18n="stickers_lead"></p>
+        </div>
+
+        <div class="sticker-atelier-grid">
+          <div class="sticker-tray-card">
+            <div class="sticker-tray-title">
+              <span>1. PICK A STICKER (15 ORIGINAL ASSETS)</span>
+              <span id="selected-sticker-name" style="color:var(--red);">SELECTED: SKEPTICAL</span>
+            </div>
+            <div class="sticker-palette-grid" id="sticker-palette-grid"></div>
+            <div class="sticker-tray-footer">
+              <button type="button" class="btn btn-black" id="toggle-page-stick-btn" style="padding:0.62rem 1rem; font-size:0.74rem;">Stick Anywhere on Page: OFF</button>
+              <button type="button" class="btn-clear-stickers" id="clear-page-stickers-btn">Clear Page Stickers</button>
+            </div>
+          </div>
+
+          <div class="sticker-canvas-wrap">
+            <div class="canvas-toolbar">
+              <div class="bg-swatches" role="group" aria-label="Postcard paper color">
+                <span style="font-family:var(--font-mono); font-size:0.68rem; margin-right:0.35rem;">PAPER:</span>
+                <button type="button" class="bg-swatch-btn is-active" data-paper="red" style="background:var(--red);" aria-label="Red paper"></button>
+                <button type="button" class="bg-swatch-btn" data-paper="cobalt" style="background:var(--cobalt);" aria-label="Cobalt paper"></button>
+                <button type="button" class="bg-swatch-btn" data-paper="yellow" style="background:var(--yellow);" aria-label="Yellow paper"></button>
+                <button type="button" class="bg-swatch-btn" data-paper="white" style="background:var(--paper);" aria-label="White paper"></button>
+              </div>
+              <div class="canvas-action-btns">
+                <button type="button" class="canvas-mini-btn" id="postcard-shuffle-btn">Surprise Me</button>
+                <button type="button" class="canvas-mini-btn" id="postcard-clear-btn">Reset</button>
+                <button type="button" class="canvas-mini-btn" id="postcard-download-btn" style="background:var(--yellow); color:var(--ink); border-color:var(--yellow);">PNG ↓</button>
+                <button type="button" class="canvas-mini-btn" id="postcard-pdf-btn" style="background:var(--red); color:var(--paper); border-color:var(--red);">PDF ↓</button>
+              </div>
+            </div>
+
+            <div class="postcard-stage" id="postcard-stage" data-bg="red" title="Click anywhere to stamp the selected sticker! Drag placed stickers to move.">
+              <div class="postcard-bg-type">
+                <h4>A SPACE IS NEVER<br>JUST A SPACE.</h4>
+              </div>
+              <div class="postcard-bg-footer">
+                <span>DBE · FEDERICO II · NAPLES 2026/27</span>
+                <span>CLICK TO STAMP · DRAG TO MOVE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================================================================
+         SECTION 9: CLOSING RED SPREAD + INTERACTIVE MIRROR PHOTOBOOTH (PAGE 12)
+         =================================================================== -->
+    <section class="closing-red" id="contacts">
+      <div class="container">
+        <h2 class="closing-headline" data-i18n="closing_h2">THE FUTURE<br>NEEDS DESIGNERS.<br>ARE YOU IN?</h2>
+
+        <!-- Interactive Mirror Card Photobooth (Replicating the mirrored sheet on Page 12 of the editorial!) -->
+        <div class="mirror-booth-wrap">
+          <div class="mirror-frame" id="mirror-frame">
+            <div class="mirror-idle-state">
+              <span class="mirror-idle-badge" data-i18n="mirror_badge">PAGE 12 · INTERACTIVE MIRROR CARD</span>
+              <h3 data-i18n="mirror_title">LOOK IN THE MIRROR. ARE YOU IN?</h3>
+              <p data-i18n="mirror_sub"></p>
+              <div style="display:flex; gap:0.65rem; justify-content:center; flex-wrap:wrap;">
+                <button type="button" class="btn btn-black" id="mirror-start-btn" data-i18n="mirror_cam_btn">Turn On Mirror Camera</button>
+                <label class="btn btn-white" style="border-color:var(--ink); color:var(--ink); cursor:pointer;">
+                  <span data-i18n="mirror_upload_btn">Upload a Photo</span>
+                  <input type="file" id="mirror-upload-input" accept="image/*" style="display:none;">
+                </label>
+              </div>
+            </div>
+
+            <video class="mirror-video" id="mirror-video" autoplay playsinline muted></video>
+            <img class="mirror-captured-img" id="mirror-captured-img" alt="Your DBE Future Designer portrait">
+
+            <div class="mirror-editorial-overlay">
+              <div class="mirror-overlay-top">
+                <span>+ DBE · FEDERICO II · NAPLES</span>
+                <span>2026 / 2027 +</span>
+              </div>
+              <div class="mirror-overlay-bottom">
+                <span class="mirror-stamp-tag">I’M IN · FUTURE DESIGNER</span>
+                <div class="mirror-corner-mascot" id="mirror-corner-mascot"></div>
+              </div>
+            </div>
+
+            <div class="mirror-flash" id="mirror-flash"></div>
+          </div>
+
+          <div class="mirror-controls-bar" id="mirror-controls-bar" style="display:none;">
+            <button type="button" class="btn btn-yellow" id="mirror-snap-btn" data-i18n="mirror_snap_btn">Take Portrait</button>
+            <button type="button" class="btn btn-white" id="mirror-retake-btn" style="display:none;" data-i18n="mirror_retake_btn">Retake</button>
+            <button type="button" class="btn btn-yellow" id="mirror-dl-png-btn" style="display:none;">Download PNG ↓</button>
+            <button type="button" class="btn btn-black" id="mirror-dl-pdf-btn" style="display:none;">Download PDF ↓</button>
+            <button type="button" class="btn btn-outline-white" id="mirror-stop-btn" data-i18n="mirror_stop_btn">Close Camera</button>
+          </div>
+
+          <div class="mirror-error-msg" id="mirror-error-msg"></div>
+        </div>
+
+        <!-- Page 12 Practical Footer Columns -->
+        <footer class="closing-footer-grid">
+          <div class="footer-col">
+            <h4 data-i18n="ft_office">Student Affairs Office</h4>
+            <p>Via Forno Vecchio 36, 80134 Napoli (NA)</p>
+            <p style="margin-top:0.65rem;"><strong data-i18n="ft_hq">DiARC Headquarters</strong></p>
+            <p>Via Toledo 402, 80134 Napoli (NA)</p>
+            <a href="mailto:infodiarc@unina.it">infodiarc@unina.it</a>
+          </div>
+
+          <div class="footer-col">
+            <h4 data-i18n="ft_contact">Contact &amp; Official Portals</h4>
+            <a href="mailto:infodiarcdbe@unina.it"><strong>infodiarcdbe@unina.it</strong></a>
+            <a href="https://www.diarc.unina.it/" target="_blank" rel="noopener">diarc.unina.it ↗</a>
+            <a href="https://www.corsi.unina.it/DB1/" target="_blank" rel="noopener">corsi.unina.it/DB1 ↗</a>
+            <a href="https://www.diarc.dbe.unina.it/images/DBE_application_smart_guide_26-27_color_web.pdf" target="_blank" rel="noopener">Smart Guide 26/27 (PDF) ↗</a>
+            <a href="https://www.instagram.com/dbe_federicosecondo/" target="_blank" rel="noopener">@dbe_federicosecondo on Instagram ↗</a>
+          </div>
+
+          <div class="footer-col">
+            <h4 data-i18n="ft_where">Where?</h4>
+            <p><strong>Palazzo Gravina</strong></p>
+            <p>Via Monteoliveto 3, 80134 Napoli (NA)</p>
+            <p style="margin-top:0.5rem;" data-i18n="ft_hours_lbl">Open for students:</p>
+            <p data-i18n="ft_hours_1">Mon, Wed, Fri · 09:00 to 12:00</p>
+            <p data-i18n="ft_hours_2">Tue and Thu · 09:00 to 12:00 and 14:30 to 16:30</p>
+          </div>
+        </footer>
+
+        <div class="footer-bottom-bar">
+          <div class="inst-logos" style="gap:1.5rem;">
+            <span class="inst-logo-fed" data-svg="federicoII"></span>
+            <span class="inst-logo-dbe" data-svg="dbeHand"></span>
+            <span class="inst-logo-diarc" data-svg="diarc"></span>
+          </div>
+          <span>DBE · Design for the Built Environment (LM-12) · Università degli Studi di Napoli Federico II · A.Y. 2026/2027</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/svg-assets.js"></script>
+  <script src="js/mascot-data.js"></script>
+  <script src="js/content-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
